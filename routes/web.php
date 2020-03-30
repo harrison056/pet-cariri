@@ -13,6 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::group(['middleware' => 'admin'], function(){
+	Route::get('/admin', 'AdminController@index')->middleware('auth:admin');
+	Route::get('/admin/login', 'AdminController@login');
+	Route::post('/admin/postLogin', 'AdminController@postLogin');
+
+	Route::get('/admin/logout', 'AdminController@logout')
+});
+
+
 Route::get('/', function () {
     return view('welcome');
 });
