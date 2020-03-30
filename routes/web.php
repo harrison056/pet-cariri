@@ -18,7 +18,7 @@ Route::group(['middleware' => 'admin'], function(){
 	Route::get('/admin/login', 'AdminController@login');
 	Route::post('/admin/postLogin', 'AdminController@postLogin');
 
-	Route::get('/admin/logout', 'AdminController@logout')
+	Route::get('/admin/logout', 'AdminController@logout');
 });
 
 
