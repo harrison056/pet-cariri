@@ -14,9 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['middleware' => 'admin'], function(){
-	Route::get('/admin', 'AdminController@index')->middleware('auth:admin');
+
+	Route::group(['middleware' => 'auth:admin'], function(){
+		Route::get('/admin', 'AdminController@index');
+	});
+	
 	Route::get('/admin/login', 'AdminController@login');
-	Route::post('/admin/postLogin', 'AdminController@postLogin');
+	Route::post('/admin/postLogin', 'AdminController@postLogin')->name('admin.postLogin');
 
 	Route::get('/admin/logout', 'AdminController@logout');
 });

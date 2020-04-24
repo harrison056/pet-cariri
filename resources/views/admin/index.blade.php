@@ -1,1 +1,1 @@
-Index Admin!!!
+@extends('adminlte::page')

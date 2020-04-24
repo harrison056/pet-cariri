@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
@@ -23,14 +24,15 @@ class AdminController extends Controller
     		'password' => 'required'
     	]);
 
-    	$credenciais = ['email' => $request->get('email'), 'password' => $request->get('password')]
+    	$credenciais = [
+            'email' => $request->get('email'),
+             'password' => $request->get('password')
+         ];
 
     	if (auth()->guard('admin')->attempt($credenciais)) {
     		return redirect('/admin');
     	}else{
-    		return redirect('/admin/login')
-    		->withErrors(['errors'] => 'Login Inválido!')
-    		->withInput();
+    		return redirect('/admin/login');
     	}
 
 //    	if ($validate->fails()) {
