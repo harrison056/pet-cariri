@@ -27,10 +27,12 @@ Route::group(['middleware' => 'admin'], function(){
 
 //User routes
 
+Route::resource('/user','ClienteController')->middleware('auth');
+
 Auth::routes();
 
 Route::get('/', function () {
     return view('auth.login');
 });
-
+Route::get('/index', 'UsuarioController@index')->name('index');
 Route::get('/home', 'HomeController@index')->name('home');
