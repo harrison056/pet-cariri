@@ -35,9 +35,9 @@ class AdminController extends Controller
     		return redirect('/admin/login');
     	}
 
-//    	if ($validate->fails()) {
-//    		return redirect('/admin/login')->withErrors($validate)->withInput();
-//    	}
+    	if ($validate->fails()) {
+    		return redirect('/admin/login')->withErrors($validate)->withInput();
+    	}
     }
 
     public function logout()

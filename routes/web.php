@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//Admin routes
 Route::group(['middleware' => 'admin'], function(){
 
 	Route::group(['middleware' => 'auth:admin'], function(){
@@ -21,15 +22,14 @@ Route::group(['middleware' => 'admin'], function(){
 	
 	Route::get('/admin/login', 'AdminController@login');
 	Route::post('/admin/postLogin', 'AdminController@postLogin')->name('admin.postLogin');
-
 	Route::get('/admin/logout', 'AdminController@logout');
 });
 
+//User routes
+
+Auth::routes();
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
