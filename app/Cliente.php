@@ -8,8 +8,13 @@ class Cliente extends Model
 {
     //
 
-
-    public function animal(){
+    public function animal()
+    {
         return $this->hasMany('App\Animal');
+    }
+
+    public function endereco()
+    {
+        return $this->hasOne('App\Endereco');
     }
 }

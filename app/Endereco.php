@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Animal extends Model
+class Endereco extends Model
 {
     //
-    
+
     public function cliente()
     {
        	return $this->belongsTo('App\Cliente');
