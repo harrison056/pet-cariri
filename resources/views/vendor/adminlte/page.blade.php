@@ -103,9 +103,7 @@
                         @if(config('adminlte.usermenu_enabled'))
                         <li class="nav-item dropdown user-menu">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-                                @if(config('adminlte.usermenu_image'))
-                                <img src="{{ Auth::user()->adminlte_image() }}" class="user-image img-circle elevation-2" alt="{{ Auth::user()->name }}">
-                                @endif
+                                
                                 <span @if(config('adminlte.usermenu_image'))class="d-none d-md-inline"@endif>{{ Auth::user()->name }}</span>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">

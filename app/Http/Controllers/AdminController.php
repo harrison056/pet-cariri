@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\User;
 
 class AdminController extends Controller
 {
     public function index()
     {
-    	return view('admin.index');
+        $user = User::all();
+    	return view('admin.index', array('user'=> $user)); 
     }
 
     public function login()
