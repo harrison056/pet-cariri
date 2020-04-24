@@ -27,7 +27,7 @@ Route::group(['middleware' => 'admin'], function(){
 
 //User routes
 
-Route::resource('/user','ClienteController')->middleware('auth');
+Route::resource('/cliente','ClienteController')->middleware('auth');
 
 Auth::routes();
 

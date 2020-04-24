@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Cliente;
+use App\Endereco;
+use App\Animal;
 
 class ClienteController extends Controller
 {
@@ -23,7 +26,7 @@ class ClienteController extends Controller
      */
     public function create()
     {
-        //
+        return view('cliente.create');
     }
 
     /**
@@ -34,7 +37,29 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $cliente = Cliente::create([
+            'nome' => $request['nome'],
+            'telefone' => $request['tel'],
+            'email' => $request['email'],
+            'user_id' => Auth::user()->id
+        ]);
+
+        $cliente->endereco()->create([
+            'rua' => $request['rua'],
+            'bairro' => $request['bairro'],
+            'cidade' => $request['cidade'],
+            'cep' => $request['cep'],
+        ]);    
+
+        $cliente->animal()->create([
+            'nome' => $request['nome'],
+            'raca' => $request['raca'],
+            'peso' => $request['peso'],
+            'obs' => $request['obs']
+        ]);
+
+        return redirect('cliente/')->with('success', 'Cliente cadastrado com sucesso!');
+
     }
 
     /**
@@ -45,7 +70,8 @@ class ClienteController extends Controller
      */
     public function show($id)
     {
-        //
+        $cliente = Cliente::find($id);
+        return view('cliente.show', array('cliente' => $cliente));
     }
 
     /**
@@ -56,7 +82,8 @@ class ClienteController extends Controller
      */
     public function edit($id)
     {
-        //
+        $cliente = Cliente::find($id);
+        return view('cliente.edit', compact('cliente', 'id'), array('cliente' => $cliente));
     }
 
     /**
@@ -68,7 +95,12 @@ class ClienteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $cliente = Cliente::find($id);
+
+        $cliente->nome = $request->get('nome');
+        $cliente->telefone = $request->get('tel');
+        $cliente->email = $request->get('email');
+        $cliente->endereco->rua = $request->get('rua');//TESTAAAAR
     }
 
     /**
@@ -79,6 +111,18 @@ class ClienteController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $cliente = Cliente::find($id);
+
+        $cliente->delete();
+
+        return redirect('cliente/')->with('success','Cliente deletado com sucesso!');
     }
+
+/*
+    public function cadastraAnimal()
+    {
+        
+    }
+ */
+    
 }

@@ -2,10 +2,6 @@
 
 @section('content')
 
-<h1>Index</h1>
-
-
-<a href="cliente/create">novo cliente</a>
-
+<h1>Novo cliente</h1>
 
 @endsection

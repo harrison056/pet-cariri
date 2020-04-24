@@ -20,6 +20,8 @@ class CreateClientesTable extends Migration
             $table->string('telefone');
             $table->string('email');
 
+            $table->integer('user_id')->unsigned();
+
             $table->timestamps();
         });
     }
