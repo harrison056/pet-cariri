@@ -27,14 +27,18 @@ Route::group(['middleware' => 'admin'], function(){
 
 //User routes
 
+//rotas cliente
 Route::resource('/cliente','ClienteController')->middleware('auth');
 Route::post('/cliente/busca', 'ClienteController@busca')->middleware('auth');
 
+//rotas produto
+Route::resource('/produto','ProdutoController')->middleware('auth');
 
 Auth::routes();
 
 Route::get('/', function () {
     return view('auth.login');
 });
+
 Route::get('/index', 'UsuarioController@index')->name('index');
 Route::get('/home', 'HomeController@index')->name('home');
