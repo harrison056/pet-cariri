@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cliente extends Model
 {
-    //
+    protected $fillable = ['nome', 'email', 'telefone','user_id'];
 
     public function animal()
     {

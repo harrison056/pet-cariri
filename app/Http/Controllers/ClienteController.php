@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Cliente;
 use App\Endereco;
 use App\Animal;
+use Illuminate\Support\Facades\Auth;
 
 class ClienteController extends Controller
 {
@@ -37,6 +38,20 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
+
+        $this->validate($request,[
+            'nome' => 'required|max:255',
+            'tel' => 'required',
+            'rua' => 'required',
+            'bairro' => 'required',
+            'cidade' => 'required',
+            'cep' => 'numeric|required',
+            'email' => 'required|max:255',
+            'animal' => 'required',
+            'raca' => 'required',
+            'peso' => 'numeric|required'
+        ]);
+
         $cliente = Cliente::create([
             'nome' => $request['nome'],
             'telefone' => $request['tel'],
@@ -52,7 +67,7 @@ class ClienteController extends Controller
         ]);    
 
         $cliente->animal()->create([
-            'nome' => $request['nome'],
+            'nome' => $request['animal'],
             'raca' => $request['raca'],
             'peso' => $request['peso'],
             'obs' => $request['obs']
