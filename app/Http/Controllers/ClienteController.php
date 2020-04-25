@@ -152,6 +152,8 @@ class ClienteController extends Controller
     {
         $cliente = Cliente::find($id);
 
+        $cliente->endereco()->delete();
+        $cliente->animal()->delete();
         $cliente->delete();
 
         return redirect('cliente/')->with('success','Cliente deletado com sucesso!');
