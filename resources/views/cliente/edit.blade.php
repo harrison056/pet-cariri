@@ -12,7 +12,25 @@
 	@csrf
 	<input type="hidden" name="_method" value="PATCH">
 
-	
+	<! -- Mensagem Erro -->
+	<div class="card-body">
+		@if($message = Session::get('danger'))
+			<div class="alert alert-danger">
+				{{$message}}
+			</div>
+		@endif
+
+    	@if(count($errors)>0)
+		<div class="alert alert-danger">
+			<ul>
+				@foreach($errors->all() as $error)
+				<li>{{$error}}</li>
+				@endforeach
+			</ul>
+		</div>
+		@endif
+
+	</div>
 
     	<div class="card-body">
     		<! -- Campo Nome -->
