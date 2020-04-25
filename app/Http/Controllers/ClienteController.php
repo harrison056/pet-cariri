@@ -17,7 +17,11 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        return view('cliente.index');
+        $cliente = Cliente::where('user_id', 'LIKE', Auth::user()->id)
+        ->orderBy('nome', 'asc')
+        ->paginate(5);
+
+        return view('cliente.index', array('cliente'=> $cliente,'buscar' => null));
     }
 
     /**
@@ -73,7 +77,10 @@ class ClienteController extends Controller
             'obs' => $request['obs']
         ]);
 
-        return redirect('cliente/')->with('success', 'Cliente cadastrado com sucesso!');
+        
+        if ($cliente->save()) {
+            return redirect('cliente/')->with('success', 'Cliente cadastrado com sucesso!');
+        }
 
     }
 

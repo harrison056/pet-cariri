@@ -28,6 +28,8 @@ Route::group(['middleware' => 'admin'], function(){
 //User routes
 
 Route::resource('/cliente','ClienteController')->middleware('auth');
+Route::post('/cliente/busca', 'ClienteController@busca')->middleware('auth');
+
 
 Auth::routes();
 
