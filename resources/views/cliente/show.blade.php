@@ -2,6 +2,11 @@
 
 @section('content')
 
+@if($message = Session::get('success'))
+	<div class="alert alert-success">
+		{{$message}}
+	</div>
+@endif
 
 <div class="card card-info">
 	<div class="card-header">
@@ -22,6 +27,10 @@
 			<li><strong>Adicionado em: </strong> {{date("d/m/Y H:i", strtotime($cliente->created_at))}}</li>
 		</ul>
 	</div>
+	<div class="card-body">
+		<a href="{{URL::to('cliente/' .$cliente->id. '/edit')}}"><button type="submit" class="btn btn-primary">Editar cadastro</button></a>
+	</div>
+	
 </div>
 
 <div class="card card-info">
@@ -35,5 +44,7 @@
 		</ul>
 	</div>
 </div>
+
+
 
 @endsection

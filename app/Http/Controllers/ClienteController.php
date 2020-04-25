@@ -110,7 +110,10 @@ class ClienteController extends Controller
     public function edit($id)
     {
         $cliente = Cliente::find($id);
-        return view('cliente.edit', compact('cliente', 'id'), array('cliente' => $cliente));
+        $endereco = $cliente->endereco;
+
+        return view('cliente.edit', compact('cliente', 'id'), array('cliente' => $cliente,
+         'endereco' => $endereco));
     }
 
     /**
@@ -127,7 +130,16 @@ class ClienteController extends Controller
         $cliente->nome = $request->get('nome');
         $cliente->telefone = $request->get('tel');
         $cliente->email = $request->get('email');
-        $cliente->endereco->rua = $request->get('rua');//TESTAAAAR
+        
+        $cliente->endereco()->update([
+            'rua' => $request['rua'],
+            'bairro' => $request['bairro'],
+            'cidade' => $request['cidade'],
+            'cep' => $request['cep'],
+        ]); 
+        if ($cliente->save()) {
+            return redirect('cliente/' .$id)->with('success', 'Alterações realizadas com sucesso!');
+        }
     }
 
     /**
