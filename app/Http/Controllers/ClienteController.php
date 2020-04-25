@@ -93,7 +93,12 @@ class ClienteController extends Controller
     public function show($id)
     {
         $cliente = Cliente::find($id);
-        return view('cliente.show', array('cliente' => $cliente));
+        $endereco = $cliente->endereco;
+        $animal = $cliente->animal;
+
+        return view('cliente.show', array('cliente' => $cliente,
+         'endereco' => $endereco, 'animal' => $animal
+        ));
     }
 
     /**
