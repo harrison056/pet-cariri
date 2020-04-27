@@ -161,12 +161,6 @@ class ClienteController extends Controller
         return redirect('cliente/')->with('success','Cliente deletado com sucesso!');
     }
 
-/*
-    public function cadastraAnimal()
-    {
-        
-    }
- */
 
     public function busca(Request $request){
         $cliente = Cliente::where('nome', 'LIKE', '%'.$request->input('busca').'%')

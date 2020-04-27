@@ -18,7 +18,7 @@ class CreateAgendarServicosTable extends Migration
 
             $table->string('data');
             $table->string('hora');
-            $table->string('descricao')->default("Sem descrição!");
+            $table->string('descricao')->default("Sem descrição");
 
             $table->integer('servico_id')->unsigned();
             $table->integer('animal_id')->unsigned();

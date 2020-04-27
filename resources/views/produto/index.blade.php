@@ -29,7 +29,7 @@
         	<div class="form-group row">
                 	<label for="inputEmail3" class="col-sm-1 col-form-label">Descrição</label>
              	<div class="col-sm-8">
-               		<input name="descricao" class="form-control" placeholder="Descrição">
+                    <textarea name="descricao" class="form-control" rows="3" cols="76" placeholder="Descrição"></textarea>
             	</div>
         	</div>
 
