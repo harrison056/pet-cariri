@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Produto;
+use Illuminate\Support\Facades\Auth;
 
 class ProdutoController extends Controller
 {
@@ -13,17 +15,11 @@ class ProdutoController extends Controller
      */
     public function index()
     {
-        //
-    }
+        $produto = Produto::where('user_id', 'LIKE', Auth::user()->id)
+        ->orderBy('created_at', 'asc')
+        ->paginate(10);
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return view('produto.index', array('produto'=> $produto,'buscar' => null));
     }
 
     /**
@@ -34,18 +30,16 @@ class ProdutoController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $produto = Produto::create([
+            'nome' => $request['nome'],
+            'descricao' => $request['descricao'],
+            'qtd' => $request['qtd'],
+            'user_id' => Auth::user()->id
+        ]);    
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        if ($produto->save()) {
+            return redirect('produto/');
+        }
     }
 
     /**
