@@ -17,7 +17,7 @@ class ProdutoController extends Controller
     {
         $produto = Produto::where('user_id', 'LIKE', Auth::user()->id)
         ->orderBy('created_at', 'asc')
-        ->paginate(10);
+        ->paginate(30);
 
         return view('produto.index', array('produto'=> $produto,'buscar' => null));
     }

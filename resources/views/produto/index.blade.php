@@ -62,6 +62,7 @@
             @endforeach
         </tbody>
     </table>
+    {{$produto->links()}}
 </div>
 
 @endsection
