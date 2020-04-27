@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Animal;
+use App\Servico;
 use App\AgendarServico;
+use Illuminate\Support\Facades\Auth;
 
 
 class AgendarServicoController extends Controller
@@ -16,7 +18,7 @@ class AgendarServicoController extends Controller
      */
     public function index()
     {
-        return view('servico.add.index');
+        return view('servico.agenda.index');
     }
 
     /**
@@ -27,8 +29,10 @@ class AgendarServicoController extends Controller
     public function create($animal)
     {
         $a = Animal::find($animal);
+        $servico = Servico::all()->where('user_id', Auth::user()->id);
+
         return view('servico.agenda.create',
-         array('a' => $a));
+         array('a' => $a, 'servico' => $servico));
     }
 
     /**

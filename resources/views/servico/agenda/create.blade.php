@@ -16,7 +16,7 @@
     		<div class="form-group row">
             	<label for="inputEmail3" class="col-sm-1 col-form-label">Data</label>
             	<div class="col-sm-8">
-            		<input name="data" class="form-control" id="inputEmail3">
+            		<input name="data" type="date" class="form-control" id="inputEmail3">
             	</div>
             </div>
 
@@ -30,9 +30,14 @@
 
             <! -- Campo serviço -->
     		<div class="form-group row">
-            	<label for="inputEmail3" class="col-sm-1 col-form-label">serv</label>
+            	<label for="inputEmail3" class="col-sm-1 col-form-label">Serviço</label>
             	<div class="col-sm-8">
-            		<input name="servico_id" id="servico_id" class="form-control" id="inputEmail3">
+            		<select name="servico_id" class="form-control">
+                        <option disabled selected>------</option>
+                        @foreach($servico as $servicos)
+                            <option value="{{$servicos->id}}">{{$servicos->nome}}</option>
+                        @endforeach
+                    </select>
             	</div>
             </div>
 
