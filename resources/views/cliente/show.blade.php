@@ -16,6 +16,7 @@
 	</div>
 	<div>
 		<ul>
+			<br>
 			<li><strong>Email</strong> {{$cliente->email}}</li>
 			<li><strong>Telefone</strong> {{$cliente->telefone}}</li>
 
@@ -24,7 +25,7 @@
 			<li><strong>Cidade</strong> {{$endereco->cidade}}</li>
 			<li><strong>Cep</strong> {{$endereco->cep}}</li>
 
-			<li><strong>Adicionado em: </strong> {{date("d/m/Y H:i", strtotime($cliente->created_at))}}</li>
+			<li><strong>Adicionado em </strong> {{date("d/m/Y H:i", strtotime($cliente->created_at))}}</li>
 		</ul>
 	</div>
 	<div class="card-body">
@@ -42,7 +43,8 @@
 
 	<div>
 		<ul>
-			<li><strong>Nome</strong>{{$animal}} </li>
+			<br>
+			<li><strong>Nome </strong> {{$animal->nome}}</li>
 		</ul>
 	</div>
 </div>

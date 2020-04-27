@@ -94,10 +94,12 @@ class ClienteController extends Controller
     {
         $cliente = Cliente::find($id);
         $endereco = $cliente->endereco;
-        $animal = $cliente->animal;
+        $animal = $cliente->animal->first();
+
 
         return view('cliente.show', array('cliente' => $cliente,
-         'endereco' => $endereco, 'animal' => $animal
+            'endereco' => $endereco,
+            'animal' => $animal
         ));
     }
 
