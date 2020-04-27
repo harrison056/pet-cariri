@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Animal;
+use App\AgendarServico;
+
 
 class AgendarServicoController extends Controller
 {
@@ -13,7 +16,7 @@ class AgendarServicoController extends Controller
      */
     public function index()
     {
-        //
+        return view('servico.add.index');
     }
 
     /**
@@ -21,9 +24,11 @@ class AgendarServicoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($animal)
     {
-        //
+        $a = Animal::find($animal);
+        return view('servico.agenda.create',
+         array('a' => $a));
     }
 
     /**
@@ -34,7 +39,20 @@ class AgendarServicoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $servico = AgendarServico::create([
+            'data' => $request['data'],
+            'hora' => $request['hora'],
+
+            'servico_id' => $request['servico_id'],//dado do select
+            'animal_id' => $request['animal_id'],
+
+            'descricao' => $request['descricao'],
+        ]);
+
+        if ($servico->save()) {
+            return redirect('index/')->with('success', 'Agendado!');
+        }
     }
 
     /**

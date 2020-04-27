@@ -37,6 +37,12 @@ Route::resource('/produto','ProdutoController')->middleware('auth');
 //rotas servico
 Route::resource('/servico','ServicoController')->middleware('auth');
 
+//rotas agendamento de servico
+Route::post('/agendarservico','AgendarServicoController@store');
+Route::get('/animal/{animal}/agendarservico', 'AgendarServicoController@create');
+
+
+
 Auth::routes();
 
 Route::get('/', function () {
