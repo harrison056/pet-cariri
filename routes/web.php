@@ -34,6 +34,9 @@ Route::post('/cliente/busca', 'ClienteController@busca')->middleware('auth');
 //rotas produto
 Route::resource('/produto','ProdutoController')->middleware('auth');
 
+//rotas servico
+Route::resource('/servico','ServicoController')->middleware('auth');
+
 Auth::routes();
 
 Route::get('/', function () {
