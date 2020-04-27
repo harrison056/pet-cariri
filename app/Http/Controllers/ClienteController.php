@@ -94,7 +94,7 @@ class ClienteController extends Controller
     {
         $cliente = Cliente::find($id);
         $endereco = $cliente->endereco;
-        $animal = $cliente->animal->first();
+        $animal = $cliente->animal;
 
 
         return view('cliente.show', array('cliente' => $cliente,

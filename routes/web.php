@@ -41,6 +41,8 @@ Route::resource('/servico','ServicoController')->middleware('auth');
 Route::post('/agendarservico','AgendarServicoController@store');
 Route::get('/animal/{animal}/agendarservico', 'AgendarServicoController@create');
 
+//rota cadastro de animal
+Route::post('/animal','AnimalController@store');
 
 
 Auth::routes();
