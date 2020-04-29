@@ -8,37 +8,27 @@
 	</div>
 </div>
 <br>
-@foreach($user as $users)
 
-<div class="box box-success">
-	<div class="card card-primary">
-		
-		<div class="card-header">
-			<h3>{{$users->name}}</h3>
-		</div>
 
-		<div class="box-body">
-    		<div class="col-md-8">
-    			<ul>
-					<strong>Email</strong> {{$users->email}}
-					<p><strong>Adicionado em: </strong> {{date("d/m/Y H:i", strtotime($users->created_at))}}</p>	
-				</ul>
-    		</div>
-
-		</div>
-		
-        
-    </div>
-
-    <div class="box-body">
-    	<div class="col-md-8">
-    		
-    	</div>
-
-	</div>
+<div class="box box-primary">
+    <table class="table table-hover table-bordered">
+        <thead>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Adicionado em</th>
+        </thead>
+        <tbody>
+            @foreach($user as $users)
+                <tr>
+                    <td>{{$users->name}}</td>
+                    <td>{{$users->email}}</td>
+                    <td>{{date("d/m/Y H:i", strtotime($users->created_at))}}</td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
 </div>
 
 
-@endforeach
 
 @endsection
