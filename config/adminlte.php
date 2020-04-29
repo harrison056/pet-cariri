@@ -213,13 +213,19 @@ return [
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
+
         [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
+            'text' => 'Cadastrar novo serviço',
+            'url'  => 'servico/create',
+            'icon' => 'fas fa-fw fa-paw',
         ],
+        
+        [
+            'text' => 'Realizar Compra',
+            'url'  => 'venda',
+            'icon' => 'fas fa-fw fa-shopping-cart',
+        ],
+        
         ['header' => 'account_settings'],
         [
             'text' => 'profile',
@@ -232,56 +238,26 @@ return [
             'icon' => 'fas fa-fw fa-lock',
         ],
         [
-            'text'    => 'multilevel',
-            'icon'    => 'fas fa-fw fa-share',
+            'text'    => 'Clientes',
+            'icon'    => 'fas fa-fw fa-users',
             'submenu' => [
                 [
-                    'text' => 'level_one',
-                    'url'  => '#',
+                    'text' => 'Novo Cliente',
+                    'url'  => 'cliente/create',
                 ],
                 [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
+                    'text'    => 'Lista de Clientes',
+                    'url'     => 'cliente',
+                    
                 ],
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
+                
             ],
         ],
-        ['header' => 'labels'],
         [
-            'text'       => 'important',
-            'icon_color' => 'red',
-        ],
-        [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
-        ],
-        [
-            'text'       => 'information',
-            'icon_color' => 'aqua',
-        ],
+            'text' => 'Produtos',
+            'url'  => 'produto',
+            'icon' => 'fas fa-fw  fa-clone',
+        ]
     ],
 
     /*

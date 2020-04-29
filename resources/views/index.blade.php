@@ -11,16 +11,4 @@
 
 <h1>Index</h1>
 
-
-<a href="cliente/create">novo cliente</a>
-<br>
-<a href="cliente">clientes</a>
-<br>
-<a href="produto">Produtos</a>
-<br>
-<a href="servico/create">Novo serviço</a>
-<br>
-<a href="venda/create">Nova venda</a>
-
-
 @endsection

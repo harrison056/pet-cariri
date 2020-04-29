@@ -1,6 +1,11 @@
 @extends('adminlte::page')
 
 @section('content')
+<script
+src="https://code.jquery.com/jquery-3.4.1.min.js"
+integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+crossorigin="anonymous"></script>
+<script type="text/javascript" src="{{url('js/jquery.mask.min.js')}}"></script>
 
 <! -- Form Cliente -->
 <div class="card card-info">
@@ -52,7 +57,7 @@
             <div class="form-group row">
             	<label for="inputEmail3" class="col-sm-1 col-form-label">Telefone</label>
             	<div class="col-sm-8">
-            		<input name="tel" class="form-control" id="inputEmail3" placeholder="Telefone">
+            		<input name="tel" class="form-control" id="tel" placeholder="Telefone">
             	</div>
             </div>
 
@@ -84,7 +89,7 @@
             <div class="form-group row">
             	<label for="inputEmail3" class="col-sm-1 col-form-label">Cep</label>
             	<div class="col-sm-8">
-            		<input name="cep" class="form-control" id="inputEmail3" placeholder="Cep">
+            		<input name="cep" class="form-control" id="cep" placeholder="Cep">
             	</div>
             </div>
     	</div>
@@ -143,5 +148,12 @@
     </div>
 </div>
 </form>
+
+
+
+<script type="text/javascript">
+	$('#tel').mask('(99)99999-9999');
+    $('#cep').mask('00000-000');
+</script>
 
 @endsection

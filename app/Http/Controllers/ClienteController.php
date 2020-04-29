@@ -49,7 +49,7 @@ class ClienteController extends Controller
             'rua' => 'required',
             'bairro' => 'required',
             'cidade' => 'required',
-            'cep' => 'numeric|required',
+            'cep' => 'required',
             'email' => 'required|max:255',
             'animal' => 'required',
             'raca' => 'required',
