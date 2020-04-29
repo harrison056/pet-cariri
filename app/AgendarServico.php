@@ -6,6 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class AgendarServico extends Model
 {
-    protected $fillable = ['data','hora', 'servico_id', 'animal_id'];
+    protected $fillable = ['data','hora', 'servico_id', 'animal_id', 'user_id'];
+
+    public function servico()
+    {
+       	return $this->belongsTo('App\Servico');
+    }
 
 }

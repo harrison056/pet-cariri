@@ -43,6 +43,7 @@ Route::resource('/servico','ServicoController')->middleware('auth');
 //rotas agendamento de servico
 Route::post('/agendarservico','AgendarServicoController@store');
 Route::get('/animal/{animal}/agendarservico', 'AgendarServicoController@create');
+Route::get('/agenda', 'AgendarServicoController@index');
 
 //rota cadastro de animal
 Route::post('/animal','AnimalController@store');
