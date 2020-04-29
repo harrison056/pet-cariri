@@ -34,6 +34,7 @@ class ProdutoController extends Controller
             'nome' => $request['nome'],
             'descricao' => $request['descricao'],
             'qtd' => $request['qtd'],
+            'preco' => $request['preco'],
             'user_id' => Auth::user()->id
         ]);    
 
