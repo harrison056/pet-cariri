@@ -54,7 +54,7 @@
 			<li><strong>Nome </strong> {{$animals->nome}}</li>
 		</ul>
 		<div class="card-body">
-			<a href="{{URL::to('animal/' .$animals->id. '/agendarservico')}}"><button type="submit" class="btn btn-primary">Agendar consulta</button></a>
+			<a href="{{URL::to('animal/' .$animals->id. '/agendarservico')}}"><button type="submit" class="btn btn-primary">Agendar visita</button></a>
 		</div>
 	</div>
 </div>

@@ -7,7 +7,7 @@
 
 	<div class="card card-info">
 		<div class="card-header">
-			<h3>Alterar dados do cliente</h3>
+			<h3>Nova visita</h3>
 		</div>
 
 		<div class="card-body">

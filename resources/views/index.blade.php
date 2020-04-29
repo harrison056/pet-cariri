@@ -17,6 +17,8 @@
 <a href="cliente">clientes</a>
 <br>
 <a href="produto">Produtos</a>
+<br>
+<a href="servico/create">Novo serviço</a>
 
 
 @endsection
