@@ -19,6 +19,7 @@ class ServicoController extends Controller
 
     	$servico = Servico::create([
             'nome' => $request['nome'],
+            'preco' => $request['preco'],
             'descricao' => $request['descricao'],
             'user_id' => Auth::user()->id
         ]);    

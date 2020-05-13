@@ -18,7 +18,16 @@ class AgendarServicoController extends Controller
      */
     public function index()
     {
+<<<<<<< Updated upstream
         return view('servico.agenda.index');
+=======
+        $agenda = AgendarServico::all()->where('user_id', Auth::user()->id);
+        
+        echo $agenda;
+        exit();
+        
+        return view('servico.agenda.index', array('agenda' => $agenda));
+>>>>>>> Stashed changes
     }
 
     /**
@@ -44,11 +53,18 @@ class AgendarServicoController extends Controller
     public function store(Request $request)
     {
         
+<<<<<<< Updated upstream
         $servico = AgendarServico::create([
             'data' => $request['data'],
             'hora' => $request['hora'],
 
             'servico_id' => $request['servico_id'],//dado do select
+=======
+        AgendarServico::create([
+            'data' => $request['data'],
+            'hora' => $request['hora'],
+            'servico_id' => $request ['servico_id'],
+>>>>>>> Stashed changes
             'animal_id' => $request['animal_id'],
 
             'descricao' => $request['descricao'],
