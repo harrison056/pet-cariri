@@ -2,12 +2,6 @@
 
 @section('content')
 
-@if($message = Session::get('success'))
-	<div class="alert alert-success">
-		{{$message}}
-	</div>
-@endif
-
 <div class="card card-info">
 	<div class="card-header">
 		<h3>Adicionar Serviço</h3>

@@ -18,7 +18,7 @@ class CreateServicosTable extends Migration
 
             $table->string('nome');
             $table->string('descricao')->default("Sem descrição");
-            $table->integer('user_id');
+            $table->string('user_id');
             
             $table->timestamps();
         });

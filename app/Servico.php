@@ -7,9 +7,4 @@ use Illuminate\Database\Eloquent\Model;
 class Servico extends Model
 {
     protected $fillable = ['nome',  'user_id'];
-
-    public function agendarServico()
-    {
-        return $this->hasMany('App\AgendarServico');
-    }
 }

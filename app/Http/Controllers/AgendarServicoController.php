@@ -18,12 +18,7 @@ class AgendarServicoController extends Controller
      */
     public function index()
     {
-        $agenda = AgendarServico::all()->where('user_id', Auth::user()->id);
-
-        $b = $agenda->servico();
-        echo $b;
-        exit();
-        return view('servico.agenda.index', array('agenda' => $agenda));
+        return view('servico.agenda.index');
     }
 
     /**
@@ -48,19 +43,20 @@ class AgendarServicoController extends Controller
      */
     public function store(Request $request)
     {
-        $servico = Servico::find($request->get('servico_id'));
-
-        $servico->agendarServico()->create([
+        
+        $servico = AgendarServico::create([
             'data' => $request['data'],
             'hora' => $request['hora'],
 
+            'servico_id' => $request['servico_id'],//dado do select
             'animal_id' => $request['animal_id'],
-            'user_id' => Auth::user()->id,
-            'descricao' => $request['descricao']
+
+            'descricao' => $request['descricao'],
         ]);
-        
-       
-        return redirect('agenda/')->with('success', 'Agendado!');
+
+        if ($servico->save()) {
+            return redirect('index/')->with('success', 'Agendado!');
+        }
     }
 
     /**

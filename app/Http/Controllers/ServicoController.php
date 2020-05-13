@@ -24,7 +24,7 @@ class ServicoController extends Controller
         ]);    
 
         if ($servico->save()) {
-            return redirect('servico/create')->with('success', 'Serviço cadastrado');
+            return redirect('index/')->with('success', 'Serciço cadastrado');
         }
 
     }
