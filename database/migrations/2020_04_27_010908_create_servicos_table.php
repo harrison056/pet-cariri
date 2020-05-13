@@ -19,7 +19,7 @@ class CreateServicosTable extends Migration
             $table->string('nome');
             $table->double('preco');
             $table->string('descricao')->default("Sem descrição");
-            $table->string('user_id');
+            $table->integer('user_id');
             
             $table->timestamps();
         });

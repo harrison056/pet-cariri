@@ -22,7 +22,7 @@ class CreateAgendarServicosTable extends Migration
 
             $table->integer('servico_id')->unsigned();
             $table->integer('animal_id')->unsigned();
-            $table->string('user_id');
+            $table->integer('user_id');
 
             $table->timestamps();
         });
