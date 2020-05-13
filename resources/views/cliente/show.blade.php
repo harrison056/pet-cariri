@@ -96,7 +96,7 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h4 class="modal-title">Excluir paciente</h4>
+              <h4 class="modal-title">Adicionar Animal</h4>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -112,7 +112,27 @@
 	            		<input name="animal" class="form-control" id="inputEmail3" placeholder="Nome">
 	            	</div>
 	        </div>
-
+	        <! -- Espécie Animal -->
+			<div class="form-group row">
+	        	<label for="especie" class="col-sm-2 col-form-label">Espécie</label>
+	            	<div class="col-sm-6">
+	            		<input name="especie" class="form-control" id="inputEmail3" placeholder="Espécie">
+	            	</div>
+	        </div>
+	        <! -- Pelagem Animal -->
+			<div class="form-group row">
+	        	<label for="especie" class="col-sm-2 col-form-label">Pelagem</label>
+	            	<div class="col-sm-6">
+	            		<input name="pelagem" class="form-control" id="inputEmail3" placeholder="Pelagem">
+	            	</div>
+	        </div>     
+	        <! -- Cor Animal -->
+			<div class="form-group row">
+	        	<label for="especie" class="col-sm-2 col-form-label">Cor</label>
+	            	<div class="col-sm-6">
+	            		<input name="cor" class="form-control" id="inputEmail3" placeholder="Cor">
+	            	</div>
+	        </div>  
 	        <! -- Nome Raça -->
 			<div class="form-group row">
 	        	<label for="inputEmail3" class="col-sm-2 col-form-label">Raça</label>
@@ -125,10 +145,32 @@
 			<div class="form-group row">
 	        	<label for="inputEmail3" class="col-sm-2 col-form-label">Peso</label>
 	            	<div class="col-sm-6">
-	            		<input name="peso" class="form-control" id="inputEmail3" placeholder="Peso">
+	            		<input name="peso" class="form-control" id="inputEmail3" placeholder="Peso (Kg)">
 	            	</div>
 	        </div>
-
+	        <! -- Porte Animal -->
+			<div class="form-group row">
+	        	<label for="especie" class="col-sm-2 col-form-label">Porte</label>
+	            <div class="col-sm-6">
+	            	<select name="porte" class="form-control">
+	            		<option disabled selected>------</option>
+	            		<option value="Pequeno">Pequeno</option>
+	            		<option value="Medio">Médio</option>
+	            		<option value="Grande">Grande</option>
+	            	</select>
+	            </div>	
+	        </div>  
+	        <! -- Sexo Peso -->
+			<div class="form-group row">
+	        	<label for="inputEmail3" class="col-sm-2 col-form-label">Sexo</label>
+	            	<div class="col-sm-6">
+	            		<select name="sexo" class="form-control">
+	            		<option disabled selected>------</option>
+	            		<option value="Macho">Macho</option>
+	            		<option value="Femea">Fêmea</option>
+	            	</select>
+	            	</div>
+	        </div>
 	        <! -- Obserções Gerais -->
 			<div class="form-group row">
 	        	<label for="inputEmail3" class="col-sm-4 col-form-label">Obserções Gerais</label>

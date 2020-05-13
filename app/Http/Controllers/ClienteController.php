@@ -72,6 +72,11 @@ class ClienteController extends Controller
 
         $cliente->animal()->create([
             'nome' => $request['animal'],
+            'especie' => $request['especie'],
+            'pelagem' => $request['pelagem'],
+            'cor' => $request['cor'],
+            'porte' => $request['porte'],
+            'sexo' => $request['sexo'],
             'raca' => $request['raca'],
             'peso' => $request['peso'],
             'obs' => $request['obs']
@@ -170,34 +175,5 @@ class ClienteController extends Controller
         return view('cliente.index', array('cliente' => $cliente, 'buscar' => $request->input('busca')));
     }
 
-    
-
-    private function validarCep($cep) {
-        // retira espacos em branco
-        $cep = trim($cep);
-        // expressao regular para avaliar o cep
-        $avaliaCep = preg_match("/[0-9]{5}-[0-9]{3}/", $cep);
-        
-        // verifica o resultado
-        if(!$avaliaCep) {            
-            return false;
-        }else{
-            return true;
-        }
-    }
-
-    private function validarTelefone($Telefone) {
-        
-        $Telefone = trim($Telefone);
-        
-        $avaliaTel = preg_match('/^\(\d{2}\)\d{4,5}-\d{4}$/', $Telefone);
-        
-        // verifica o resultado
-        if(!$avaliaTel) {            
-            return false;
-        }else{
-            return true;
-        }
-    }
     
 }

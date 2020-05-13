@@ -102,7 +102,7 @@ crossorigin="anonymous"></script>
 		<h3>Animal</h3>
 	</div>
 	<div class="card-body">
-		
+			
 
 	    	<! -- Nome Animal -->
 			<div class="form-group row">
@@ -111,23 +111,60 @@ crossorigin="anonymous"></script>
 	            		<input name="animal" class="form-control" id="inputEmail3" placeholder="Nome">
 	            	</div>
 	        </div>
-
-	        <! -- Nome Raça -->
+	        <! -- Espécie Animal -->
 			<div class="form-group row">
-	        	<label for="inputEmail3" class="col-sm-1 col-form-label">Raça</label>
-	            	<div class="col-sm-8">
+	        	<label for="inputEmail3" class="col-sm-1 col-form-label">Espécie</label>
+	            	<div class="col-sm-4">
+	            		<input name="especie" class="form-control" id="inputEmail3" placeholder="Espécie">
+	            	</div>
+	        <! -- Pelagem Animal -->
+	        	<label for="inputEmail3" class="col-sm-1 col-form-label">Pelagem</label>
+	            	<div class="col-sm-4">
+	            		<input name="pelagem" class="form-control" id="inputEmail3" placeholder="Pelagem">
+	            	</div>
+	        </div>
+	        <! -- Cor Animal -->
+			<div class="form-group row">
+	        	<label for="inputEmail3" class="col-sm-1 col-form-label">Cor</label>
+	            	<div class="col-sm-4">
+	            		<input name="cor" class="form-control" id="inputEmail3" placeholder="Cor">
+	            	</div>
+	            <! -- Raça Animal -->	
+	            <label for="raca" class="col-sm-1 col-form-label">Raça</label>
+	            	<div class="col-sm-4">
 	            		<input name="raca" class="form-control" id="inputEmail3" placeholder="Raça">
 	            	</div>
 	        </div>
-
+	        
 	        <! -- Nome Peso -->
 			<div class="form-group row">
-	        	<label for="inputEmail3" class="col-sm-1 col-form-label">Peso</label>
-	            	<div class="col-sm-8">
-	            		<input name="peso" class="form-control" id="inputEmail3" placeholder="Peso">
+	        	<label for="peso" class="col-sm-1 col-form-label">Peso</label>
+	            	<div class="col-sm-4">
+	            		<input name="peso" class="form-control" id="inputEmail3" placeholder="Peso (Kg)">
 	            	</div>
+	            <! -- Sexo Animal -->
+	        	<label for="inputEmail3" class="col-sm-1 col-form-label">Sexo</label>
+	            <div class="col-sm-4">
+	            	<select name="sexo" class="form-control">
+	            		<option disabled selected>------</option>
+	            		<option value="Macho">Macho</option>
+	            		<option value="Femea">Fêmea</option>
+	            	</select>
+	            </div>	
+	        </div>	
+	        <div class="form-group row">
+	        	<! -- Porte Animal -->
+	        	<label for="inputEmail3" class="col-sm-1 col-form-label">Porte</label>
+	            <div class="col-sm-4">
+	            	<select name="porte" class="form-control">
+	            		<option disabled selected>------</option>
+	            		<option value="Pequeno">Pequeno</option>
+	            		<option value="Medio">Médio</option>
+	            		<option value="Grande">Grande</option>
+	            	</select>
+	            </div>	
 	        </div>
-
+	        
 	        <! -- Obserções Gerais -->
 			<div class="form-group row">
 	        	<label for="inputEmail3" class="col-sm-2 col-form-label">Obserções Gerais</label>

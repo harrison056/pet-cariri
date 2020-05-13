@@ -19,10 +19,10 @@ class AgendarServicoController extends Controller
     public function index()
     {
         $agenda = AgendarServico::all()->where('user_id', Auth::user()->id);
-
-        $b = $agenda->servico();
-        echo $b;
+        
+        echo $agenda;
         exit();
+        
         return view('servico.agenda.index', array('agenda' => $agenda));
     }
 
@@ -48,12 +48,11 @@ class AgendarServicoController extends Controller
      */
     public function store(Request $request)
     {
-        $servico = Servico::find($request->get('servico_id'));
-
-        $servico->agendarServico()->create([
+        
+        AgendarServico::create([
             'data' => $request['data'],
             'hora' => $request['hora'],
-
+            'servico_id' => $request ['servico_id'],
             'animal_id' => $request['animal_id'],
             'user_id' => Auth::user()->id,
             'descricao' => $request['descricao']

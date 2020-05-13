@@ -14,6 +14,11 @@ class AnimalController extends Controller
 
     	$cliente->animal()->create([
             'nome' => $request['animal'],
+            'especie' => $request['especie'],
+            'pelagem' => $request['pelagem'],
+            'cor' => $request['cor'],
+            'porte' => $request['porte'],
+            'sexo' => $request['sexo'],
             'raca' => $request['raca'],
             'peso' => $request['peso'],
             'obs' => $request['obs']

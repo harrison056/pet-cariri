@@ -10,7 +10,7 @@ class AgendarServico extends Model
 
     public function servico()
     {
-       	return $this->belongsTo('App\Servico');
+       	return $this->hasMany('App\Servico');
     }
 
 }
