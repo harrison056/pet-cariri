@@ -16,6 +16,11 @@ class CreateAnimalsTable extends Migration
         Schema::create('animals', function (Blueprint $table) {
             $table->id();
 
+            $table->string('especie');
+            $table->string('pelagem');
+            $table->string('cor');
+            $table->string('porte');
+            $table->string('sexo');
             $table->string('nome');
             $table->string('raca');
             $table->double('peso');
