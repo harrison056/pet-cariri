@@ -21,7 +21,7 @@
             	<! -- Campo Quantidade -->
             	<label for="inputEmail3" class="col-sm-1.5 col-form-label">Quantidade</label>
              	<div class="col-sm-2">
-               		<input name="qtd" type="number" class="form-control" placeholder="0">
+               		<input name="qtd" type="number" min="0" class="form-control" placeholder="0">
             	</div>
                 <div class="col-sm-1"></div>
 
