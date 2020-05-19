@@ -14,4 +14,12 @@ class VendaController extends Controller
 
         return view('venda.create', array('produto' => $produto));
     }
+
+    public function getPreco($idProduto)
+    {
+    	$produto = Produto::find($idProduto);
+    	$preco = $produto->preco;
+    	
+    	return $preco;
+    }
 }

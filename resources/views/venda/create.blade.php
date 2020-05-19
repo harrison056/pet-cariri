@@ -2,10 +2,8 @@
 
 @section('content')
 
-<script
-src="https://code.jquery.com/jquery-3.4.1.min.js"
-integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-crossorigin="anonymous"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+<script type="text/javascript" src="{{url('js/funcoes.js')}}"></script>
 
 
 <div class="card card-info">
@@ -17,7 +15,7 @@ crossorigin="anonymous"></script>
 		<div class="form-group row">
             <label class="col-sm-1 col-form-label">Produto</label>
             <div class="col-sm-3">
-            	<select name="servico_id" class="form-control" id="produto">
+            	<select name="produto" class="form-control" id="produto">
                     <option disabled selected>------</option>
                     @foreach($produto as $produtos)
                         <option value="{{$produtos->id}}">{{$produtos->nome}}</option>
@@ -38,7 +36,7 @@ crossorigin="anonymous"></script>
 
             <label class="col-sm-1.5 col-form-label" for="qtd">Preço Unitário</label>
             <div class="col-sm-1">
-            	<input class="form-control" id="preco" disabled>
+            	<input class="form-control" name="preco" id="preco" >
             </div>
 
         </div>
@@ -51,30 +49,28 @@ crossorigin="anonymous"></script>
 </div>
 
 <div class="box box-primary">
-	<table class="table table-hover table-bordered">
-	    <thead>
-	        <th>Produto</th>
-	        <th>Quantidade</th>
-	        <th>Preço</th>
-	        <th>-</th>
-	    </thead>
-    </table>
+	<form class="form-horizontal" method="POST" enctype="multipart/form-data" action="{{url('venda')}}">
+		<table class="table table-hover table-bordered">
+		    <thead>
+		        <th>Produto</th>
+		        <th>Quantidade</th>
+		        <th>Preço</th>
+		    </thead>
+
+		    <tbody id="carrinho">
+		    	
+		    </tbody>
+		    <tbody>
+		    	<tr>
+		    		<td><b>Total</b></td>
+		    		<td id="total"></td>
+		    	</tr>
+		    </tbody>
+	    </table>
+	    <button type="submit" class="btn btn-primary">Finalizar compra</button>
+	</form>
 </div>
 
 
-
-<script type="text/javascript">
-	
-	function add(){
-		console.log($('#produto option:selected').val());
-		console.log($('#produto option:selected').text());
-		console.log($('#qtd').val());
-		console.log($('#preco').val());
-
-		$('#produto').val('');
-		$('#qtd').val('');
-	}
-
-</script>
 
 @endsection
