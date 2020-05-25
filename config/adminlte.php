@@ -213,12 +213,6 @@ return [
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
-
-        [
-            'text' => 'Cadastrar novo serviço',
-            'url'  => 'servico/create',
-            'icon' => 'fas fa-fw fa-paw',
-        ],
         
         [
             'text' => 'Realizar Compra',
@@ -237,6 +231,7 @@ return [
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
         ],
+        ['header' => 'GERÊNCIA'],
         [
             'text'    => 'Clientes',
             'icon'    => 'fas fa-fw fa-users',
@@ -252,6 +247,12 @@ return [
                 ],
                 
             ],
+        ],
+
+        [
+            'text' => 'Cadastrar novo serviço',
+            'url'  => 'servico/create',
+            'icon' => 'fas fa-fw fa-paw',
         ],
         [
             'text' => 'Produtos',
