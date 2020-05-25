@@ -19,9 +19,9 @@
         <tbody>
             @foreach ($agenda as $agendas)
                 <tr>
-                    <td>{{ $agendas->nome }}</td>
-                    <td>{{ $agendas->descricao }}</td>
-                    <td>{{ $agendas->data }}</td>
+                    <td>{{ $agendas->animal->cliente->nome }}</td>
+                    <td>{{ $agendas->animal->nome }}</td>
+                    <td>{{ date( 'd/m/Y' , strtotime($agendas->data) ) }}</td>
                     <td>{{ $agendas->hora }}</td>
                 </tr>
             @endforeach

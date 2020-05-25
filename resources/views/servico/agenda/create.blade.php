@@ -2,6 +2,9 @@
 
 @section('content')
 
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="{{url('js/agenda.js')}}"></script>
+
 <form class="form-horizontal" method="POST" enctype="multipart/form-data" action="{{action('AgendarServicoController@store')}}">
 @csrf
 
@@ -32,16 +35,17 @@
     		<div class="form-group row">
             	<label for="inputEmail3" class="col-sm-1 col-form-label">Serviço</label>
             	<div class="col-sm-8">
-            		<select name="servico_id" class="form-control">
+            		<select name="servico_id" class="form-control" id="servico">
                         <option disabled selected>------</option>
                         @foreach($servico as $servicos)
-                            <option value="{{$servicos->id}}">{{$servicos->nome}}</option>
+                            <option value="{{$servicos->nome}}">{{$servicos->nome}}</option>
                         @endforeach
                     </select>
             	</div>
             </div>
 
             <input type="hidden" name="animal_id" id="animal_id" value="{{$a->id}}">
+            <input type="hidden" name="preco" id="preco">
 
             <div class="form-group row">
 		    	<button type="submit" class="btn btn-primary">Adicionar</button>

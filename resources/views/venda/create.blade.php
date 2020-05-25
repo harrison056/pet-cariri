@@ -50,6 +50,7 @@
 
 <div class="box box-primary">
 	<form class="form-horizontal" method="POST" enctype="multipart/form-data" action="{{url('venda')}}">
+	@csrf	
 		<table class="table table-hover table-bordered">
 		    <thead>
 		        <th>Produto</th>
@@ -67,6 +68,7 @@
 		    	</tr>
 		    </tbody>
 	    </table>
+	    <p id="teste"></p>
 	    <button type="submit" class="btn btn-primary">Finalizar compra</button>
 	</form>
 </div>
