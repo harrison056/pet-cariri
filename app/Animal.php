@@ -12,4 +12,9 @@ class Animal extends Model
     {
        	return $this->belongsTo('App\Cliente');
     }
+
+    public function agendarServico()
+    {
+       	return $this->hasMany('App\AgendarServico');
+    }
 }

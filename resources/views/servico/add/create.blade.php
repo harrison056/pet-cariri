@@ -25,7 +25,7 @@
 		            </div>
 		        <label for="inputEmail3" class="col-sm-1 col-form-label">Valor</label>
 		            <div class="col-sm-2">
-		            	<input name="preco" type="number" step="0.01" class="form-control" placeholder="R$" >
+		            	<input name="preco" type="number" min="0" step="0.01" class="form-control" placeholder="R$" >
 		            </div>    
 		    </div>
 

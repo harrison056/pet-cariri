@@ -19,13 +19,9 @@ class AgendarServicoController extends Controller
     public function index()
     {
         $agenda = AgendarServico::all()->where('user_id', Auth::user()->id);
-   
-        echo $agenda;
-        exit();
-        
+
         return view('servico.agenda.index', array('agenda' => $agenda));
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -33,8 +29,8 @@ class AgendarServicoController extends Controller
      */
     public function create($animal)
     {
-        $a = Animal::find($animal);
         $servico = Servico::all()->where('user_id', Auth::user()->id);
+        $a = Animal::find($animal);
 
         return view('servico.agenda.create',
          array('a' => $a, 'servico' => $servico));
@@ -48,18 +44,20 @@ class AgendarServicoController extends Controller
      */
     public function store(Request $request)
     {
-        
-        AgendarServico::create([
+        echo $request['preco'];
+        exit();
+
+        $a = Animal::find($request['animal_id']);
+        $a->agendarServico()->create([
             'data' => $request['data'],
             'hora' => $request['hora'],
             'servico_id' => $request ['servico_id'],
-            'animal_id' => $request['animal_id'],
             'user_id' => Auth::user()->id,
-            'descricao' => $request['descricao']
+            'descricao' => $request['descricao'],
+            'preco' => $request['preco']
         ]);
-        
-       
-        return redirect('agenda/')->with('success', 'Agendado!');
+           
+        return redirect('index/')->with('success', 'Agendado!');
     }
 
     /**

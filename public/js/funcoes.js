@@ -13,6 +13,8 @@ function add(){
 		'<td class="precoCompra">' + precoCompra + '</td>' +
 		'</tr>');
 
+	$('#teste').append('<input type="hidden" value= '+ produto +'  name="produto">');	
+
 	var valorFinal = 0;
 	$( ".precoCompra" ).each(function() {
       	valorFinal += parseFloat($( this ).text());
