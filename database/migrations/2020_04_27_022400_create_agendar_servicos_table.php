@@ -16,11 +16,12 @@ class CreateAgendarServicosTable extends Migration
         Schema::create('agendar_servicos', function (Blueprint $table) {
             $table->id();
 
-            $table->string('data');
+            $table->date('data');
             $table->string('hora');
             $table->string('descricao')->default("Sem descrição");
+            $table->string('servico');
+            $table->double('preco');
 
-            $table->integer('servico_id')->unsigned();
             $table->integer('animal_id')->unsigned();
             $table->integer('user_id');
 
