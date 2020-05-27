@@ -21,6 +21,7 @@ class CreateAgendarServicosTable extends Migration
             $table->string('descricao')->default("Sem descrição");
             $table->string('servico');
             $table->double('preco');
+            $table->boolean('status');
 
             $table->integer('animal_id')->unsigned();
             $table->integer('user_id');
