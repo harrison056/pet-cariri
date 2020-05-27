@@ -44,9 +44,8 @@ class AgendarServicoController extends Controller
      */
     public function store(Request $request)
     {
-        
         $a = Animal::find($request['animal_id']);
-        $a->agendarServico()->create([
+        $agenda = $a->agendarServico()->create([
             'data' => $request['data'],
             'hora' => $request['hora'],
             'servico' => $request ['servico_id'],
@@ -54,7 +53,10 @@ class AgendarServicoController extends Controller
             'descricao' => $request['descricao'],
             'preco' => $request['preco']
         ]);
-           
+        if ($request['status'] == 1) {
+            $agenda->status = $request['status'];
+        }
+        $agenda->save();
         return redirect('index/')->with('success', 'Agendado!');
     }
 
@@ -66,7 +68,8 @@ class AgendarServicoController extends Controller
      */
     public function show($id)
     {
-        //
+        $agenda = AgendarServico::find($id);
+        return view('servico.agenda.show', array('agenda' => $agenda));
     }
 
     /**

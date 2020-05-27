@@ -45,10 +45,18 @@
             </div>
             <div class="form-group row">
                 <label for="inputEmail3" class="col-sm-1 col-form-label">Preço</label>
-                <div class="col-sm-8">
+                <div class="col-sm-2">
                     <input class="form-control" id="preco_view" disabled>
                 </div>
             </div>
+            <div class="form-group row">
+               <div class="custom-control custom-checkbox">
+                    <input class="custom-control-input" id="status" type="checkbox" name="status" value="1">
+                    <label for="status" class="custom-control-label">Pagamento realizado</label>
+                </div>
+            </div>    
+            
+
             <input type="hidden" name="animal_id" id="animal_id" value="{{$a->id}}">
             <input type="hidden" name="servico_id" id="servico_id">
             <input type="hidden" id="preco" name="preco">

@@ -16,6 +16,7 @@
             <th>Serviço</th>
             <th>Data</th>
             <th>Hora</th>
+            <th>Status Pagamento</th>
         </thead>
         <tbody>
             @foreach ($agenda as $agendas)
@@ -25,6 +26,11 @@
                     <td>{{ $agendas->servico }}</td>
                     <td>{{ date( 'd/m/Y' , strtotime($agendas->data) ) }}</td>
                     <td>{{ $agendas->hora }}</td>
+                    @if( $agendas->status == 1 )
+                    <td>Realizado</td>
+                    @else
+                    <td>Não realizado</td>
+                    @endif
                 </tr>
             @endforeach
         </tbody>
