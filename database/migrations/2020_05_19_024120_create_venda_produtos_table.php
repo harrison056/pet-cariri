@@ -16,6 +16,8 @@ class CreateVendaProdutosTable extends Migration
         Schema::create('venda_produtos', function (Blueprint $table) {
             $table->id();
             $table->double('valor');
+
+            $table->integer('user_id')->unsigned();
             $table->timestamps();
         });
     }
