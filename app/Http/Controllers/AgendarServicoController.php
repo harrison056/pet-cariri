@@ -44,14 +44,12 @@ class AgendarServicoController extends Controller
      */
     public function store(Request $request)
     {
-        echo $request['preco'];
-        exit();
-
+        
         $a = Animal::find($request['animal_id']);
         $a->agendarServico()->create([
             'data' => $request['data'],
             'hora' => $request['hora'],
-            'servico_id' => $request ['servico_id'],
+            'servico' => $request ['servico_id'],
             'user_id' => Auth::user()->id,
             'descricao' => $request['descricao'],
             'preco' => $request['preco']
@@ -103,5 +101,21 @@ class AgendarServicoController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function getPreco($idServico)
+    {
+        $servico = Servico::find($idServico);
+        $preco = $servico->preco;
+
+        return $preco;
+    }
+
+    public function getServico($idServico)
+    {
+        $servico_id = Servico::find($idServico);
+        $servico = $servico_id->nome;
+        
+        return $servico;
     }
 }

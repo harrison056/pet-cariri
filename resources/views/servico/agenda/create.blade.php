@@ -35,17 +35,24 @@
     		<div class="form-group row">
             	<label for="inputEmail3" class="col-sm-1 col-form-label">Serviço</label>
             	<div class="col-sm-8">
-            		<select name="servico_id" class="form-control" id="servico">
+            		<select name="servico" class="form-control" id="servico">
                         <option disabled selected>------</option>
                         @foreach($servico as $servicos)
-                            <option value="{{$servicos->nome}}">{{$servicos->nome}}</option>
+                            <option value="{{$servicos->id}}">{{$servicos->nome}}</option>
                         @endforeach
                     </select>
             	</div>
             </div>
-
+            <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-1 col-form-label">Preço</label>
+                <div class="col-sm-8">
+                    <input class="form-control" id="preco_view" disabled>
+                </div>
+            </div>
             <input type="hidden" name="animal_id" id="animal_id" value="{{$a->id}}">
-            <input type="hidden" name="preco" id="preco">
+            <input type="hidden" name="servico_id" id="servico_id">
+            <input type="hidden" id="preco" name="preco">
+            
 
             <div class="form-group row">
 		    	<button type="submit" class="btn btn-primary">Adicionar</button>

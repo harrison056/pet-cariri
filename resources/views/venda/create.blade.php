@@ -36,7 +36,7 @@
 
             <label class="col-sm-1.5 col-form-label" for="qtd">Preço Unitário</label>
             <div class="col-sm-1">
-            	<input class="form-control" name="preco" id="preco" >
+            	<input class="form-control" name="preco" id="preco" disabled>
             </div>
 
         </div>

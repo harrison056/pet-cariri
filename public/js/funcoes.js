@@ -22,13 +22,12 @@ function add(){
 	$( "#total" ).text('R$ ' + valorFinal);
 }
 
-
-$('#produto').change(function() {
-	console.log("foi");
-	var idServico = $(this).val();
-	
-
-	$.get('/get-preco/' + idServico, function(preco){
-		$('#preco').val(preco);
+$(document).ready(function(){
+	$('#produto').change(function() {
+		var idServico = $(this).val();
+		
+		$.get('/get-preco/' + idServico, function(preco){
+			$('#preco').val(preco);
+		});
 	});
 });

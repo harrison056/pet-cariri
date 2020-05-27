@@ -20,7 +20,7 @@ class UsuarioController extends Controller
 		$agenda = $agenda = AgendarServico::whereDate('data', $mytime)
 		->where('user_id', Auth::user()->id)
 		->get();
-
+        
         return view('index', array('agenda' => $agenda));
     }
 }
