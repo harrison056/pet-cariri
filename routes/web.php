@@ -42,13 +42,13 @@ Route::get('/get-preco/{idProduto}', 'VendaController@getPreco');
 Route::resource('/servico','ServicoController')->middleware('auth');
 
 //rotas agendamento de servico
-Route::post('/agendarservico','AgendarServicoController@store');
-Route::get('/animal/{animal}/agendarservico', 'AgendarServicoController@create');
-Route::get('/agenda', 'AgendarServicoController@index');
-Route::get('/agenda/get-preco/{idServico}', 'AgendarServicoController@getPreco');
-Route::get('/agenda/get-servico/{idServico}', 'AgendarServicoController@getServico');
-Route::get('/agenda/{id}/edit', 'AgendarServicoController@edit');
-Route::patch('/agenda/{id}', 'AgendarServicoController@update');
+Route::post('/agendarservico','AgendarServicoController@store')->middleware('auth');
+Route::get('/animal/{animal}/agendarservico', 'AgendarServicoController@create')->middleware('auth');
+Route::get('/agenda', 'AgendarServicoController@index')->middleware('auth');
+Route::get('/agenda/get-preco/{idServico}', 'AgendarServicoController@getPreco')->middleware('auth');
+Route::get('/agenda/get-servico/{idServico}', 'AgendarServicoController@getServico')->middleware('auth');
+Route::get('/agenda/{id}/edit', 'AgendarServicoController@edit')->middleware('auth');
+Route::patch('/agenda/{id}', 'AgendarServicoController@update')->middleware('auth');
 
 //rota cadastro de animal
 Route::post('/animal','AnimalController@store');
