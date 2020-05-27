@@ -61,18 +61,6 @@ class AgendarServicoController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        $agenda = AgendarServico::find($id);
-        return view('servico.agenda.show', array('agenda' => $agenda));
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -80,7 +68,8 @@ class AgendarServicoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $agenda = AgendarServico::find($id);
+        return view('servico.agenda.edit', compact('agenda', 'id'), array('agenda' => $agenda));
     }
 
     /**
@@ -92,7 +81,20 @@ class AgendarServicoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $agenda = AgendarServico::find($id);
+
+        if ($request['status'] == 1) {
+            $agenda->status = $request['status'];
+        }
+
+        $agenda->update([
+            'data' => $request['data'],
+            'hora' => $request['hora']
+        ]);
+
+        if ($agenda->save()) {
+            return redirect('agenda/')->with('success', 'Alterações realizadas com sucesso!');
+        }
     }
 
     /**

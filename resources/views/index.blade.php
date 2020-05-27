@@ -35,7 +35,7 @@
                     </thead>
                     <tbody>
                         @foreach ($agenda as $agendas)
-                            <tr onclick="location.href = '/agenda/{{ $agendas->id }}';" style="cursor: hand;">
+                            <tr onclick="location.href = '/agenda/{{ $agendas->id }}/edit';" style="cursor: hand;">
                                 <td>{{ $agendas->animal->cliente->nome }}</td>
                                 <td>{{ $agendas->animal->nome }}</td>
                                 <td>{{ $agendas->servico }}</td>
