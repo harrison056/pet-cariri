@@ -101,11 +101,15 @@ class ClienteController extends Controller
         $endereco = $cliente->endereco;
         $animal = $cliente->animal;
 
-
-        return view('cliente.show', array('cliente' => $cliente,
-            'endereco' => $endereco,
-            'animal' => $animal
-        ));
+        if ($cliente->user_id == Auth::user()->id) {
+            return view('cliente.show', array('cliente' => $cliente,
+                'endereco' => $endereco,
+                'animal' => $animal
+            ));
+        }else{
+            echo "Nop!!";
+        }
+        
     }
 
     /**
@@ -119,8 +123,12 @@ class ClienteController extends Controller
         $cliente = Cliente::find($id);
         $endereco = $cliente->endereco;
 
-        return view('cliente.edit', compact('cliente', 'id'), array('cliente' => $cliente,
-         'endereco' => $endereco));
+        if ($cliente->user_id == Auth::user()->id) {
+            return view('cliente.edit', compact('cliente', 'id'), array('cliente' => $cliente, 'endereco' => $endereco));
+        }else{
+            echo "Nop!!";
+        }
+        
     }
 
     /**
@@ -162,7 +170,7 @@ class ClienteController extends Controller
         $cliente->endereco()->delete();
         $cliente->animal()->delete();
         $cliente->delete();
-
+        
         return redirect('cliente/')->with('success','Cliente deletado com sucesso!');
     }
 

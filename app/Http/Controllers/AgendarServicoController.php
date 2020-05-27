@@ -32,8 +32,12 @@ class AgendarServicoController extends Controller
         $servico = Servico::all()->where('user_id', Auth::user()->id);
         $a = Animal::find($animal);
 
-        return view('servico.agenda.create',
-         array('a' => $a, 'servico' => $servico));
+        if ($a->cliente->user_id == Auth::user()->id) {
+            return view('servico.agenda.create', array('a' => $a, 'servico' => $servico));
+        }else{
+            echo "Nop!";
+        }
+        
     }
 
     /**
