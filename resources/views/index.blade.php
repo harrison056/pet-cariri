@@ -10,7 +10,14 @@
 
 <div class="card card-info">
         <div class="card-header">
-            <h3 class="box-title"><b>Agenda do dia</b></h3>
+            <div class="row">
+                <div class="col-sm-10">
+                    <h3 class="box-title"><b>Agenda do dia</b></h3>
+                </div>
+                <div class="col-sm-2">
+                    <a href="/agenda"><p>Ver todos</p></a>
+                </div>
+                </div>
         </div>
         <div class="card-body">
             @if( $agenda == "\0" )
@@ -27,7 +34,7 @@
                     </thead>
                     <tbody>
                         @foreach ($agenda as $agendas)
-                            <tr>
+                            <tr onclick="location.href = '/agenda/{{ $agendas->id }}';" style="cursor: hand;">
                                 <td>{{ $agendas->animal->cliente->nome }}</td>
                                 <td>{{ $agendas->animal->nome }}</td>
                                 <td>{{ $agendas->servico }}</td>
