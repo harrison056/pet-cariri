@@ -18,7 +18,8 @@ class AgendarServicoController extends Controller
      */
     public function index()
     {
-        $agenda = AgendarServico::all()->where('user_id', Auth::user()->id);
+        $agenda = AgendarServico::all()
+        ->where('user_id', Auth::user()->id);
 
         return view('servico.agenda.index', array('agenda' => $agenda));
     }

@@ -28,4 +28,12 @@ class VendaController extends Controller
     	
     	return $preco;
     }
+
+    public function getQtd($idProduto)
+    {
+        $produto = Produto::find($idProduto);
+        $qtd = $produto->qtd;
+        
+        return $qtd;
+    }
 }

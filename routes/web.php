@@ -36,7 +36,8 @@ Route::resource('/produto','ProdutoController')->middleware('auth');
 
 //rotas venda
 Route::resource('/venda','VendaController')->middleware('auth');
-Route::get('/get-preco/{idProduto}', 'VendaController@getPreco');
+Route::get('/get-preco/{idProduto}', 'VendaController@getPreco')->middleware('auth');
+Route::get('/get-qtd/{idProduto}', 'VendaController@getQtd')->middleware('auth');
 
 //rotas servico
 Route::resource('/servico','ServicoController')->middleware('auth');

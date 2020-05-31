@@ -29,5 +29,9 @@ $(document).ready(function(){
 		$.get('/get-preco/' + idServico, function(preco){
 			$('#preco').val(preco);
 		});
+
+		$.get('/get-qtd/' + idServico, function(qtd){
+			document.getElementById("teste").innerHTML = 'Restam <b>' + qtd + '</b>  no estoque!'
+		});
 	});
 });

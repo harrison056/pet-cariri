@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="card card-info">
+<div class="card card-success">
 	<div class="card-header">
 		<h4 class="box-title"><b>Adicionar Produto</b></h4>
 	</div>
@@ -40,9 +40,9 @@
                     <textarea name="descricao" class="form-control" rows="3" cols="76" placeholder="Descrição"></textarea>
             	</div>
         	</div>
-
+            
             <div class="form-group row">
-                <button type="submit" class="btn btn-primary">Adicionar</button>
+                <button type="submit" class="btn btn-success">Adicionar</button>
             </div>
 
         </form>

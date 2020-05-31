@@ -1,7 +1,11 @@
 @extends('adminlte::page')
 
 @section('content')
-
+<style type="text/css">
+	#teste{
+		color: red;
+	}
+</style>
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
 <script type="text/javascript" src="{{url('js/funcoes.js')}}"></script>
 
@@ -40,7 +44,7 @@
             </div>
 
         </div>
-
+        <p id="teste"></p>
 	 	<div class="card-body">
 	 		<button onclick='add()' type="submit" class="btn btn-primary">Add</button>
 	 	</div>       
@@ -69,7 +73,7 @@
 		    </tbody>
 	    </table>
 	    <p id="teste"></p>
-	    <button type="submit" class="btn btn-primary">Finalizar compra</button>
+	    <button type="submit" class="btn btn-info">Finalizar compra</button>
 	</form>
 </div>
 
