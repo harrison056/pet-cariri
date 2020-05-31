@@ -50,6 +50,7 @@ Route::get('/agenda/get-preco/{idServico}', 'AgendarServicoController@getPreco')
 Route::get('/agenda/get-servico/{idServico}', 'AgendarServicoController@getServico')->middleware('auth');
 Route::get('/agenda/{id}/edit', 'AgendarServicoController@edit')->middleware('auth');
 Route::patch('/agenda/{id}', 'AgendarServicoController@update')->middleware('auth');
+Route::delete('/agenda/{id}', 'AgendarServicoController@destroy')->middleware('auth');
 
 //rota cadastro de animal
 Route::post('/animal','AnimalController@store');

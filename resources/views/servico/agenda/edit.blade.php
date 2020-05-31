@@ -56,10 +56,48 @@
             </div> 
             
             <div class="form-group footer">
-		    	<button type="submit" class="btn btn-primary">Atualizar</button>
+                <div class="row">
+                    <div class="col-sm-2"> 
+                        <button type="submit" class="btn btn-primary">Atualizar</button>
+                    </div>
+                    
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-default">Apagar visita</button>
+                </div>
+                
 		    </div>
         </div>
 	</div>
 
 </form>
+
+<!-- /.modal Excluir cliente-->
+
+      <div class="modal fade" id="modal-default">
+        <div class="modal-dialog">
+          <div class="modal-content bg-primary">
+            <div class="modal-header">
+              <h4 class="modal-title">Fechar Agendamento</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>Fechar agendamento?</p>
+            </div>
+            <div class="modal-footer justify-content-between">
+              <button type="button" class="btn btn-outline-light" data-dismiss="modal">Não</button>
+              <form method="POST" action="{{action('AgendarServicoController@destroy', $agenda->id)}}">
+                    @csrf
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button class="btn btn-outline-light">Sim</button>
+                </form>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+<!-- /.modal -->
+
+
 @endsection

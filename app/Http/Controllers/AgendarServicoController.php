@@ -110,7 +110,8 @@ class AgendarServicoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        AgendarServico::find($id)->delete();
+        return redirect('agenda/')->with('success','Visita excluída!');
     }
 
     public function getPreco($idServico)
