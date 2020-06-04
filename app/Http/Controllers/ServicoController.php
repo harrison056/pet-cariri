@@ -9,6 +9,14 @@ use Illuminate\Support\Facades\Auth;
 class ServicoController extends Controller
 {
 
+    public function index()
+    {
+        $servico = Servico::all()
+        ->where('user_id', Auth::user()->id);
+        
+        return view('servico.add.index', array('servico' => $servico));
+    }
+
 	public function create()
     {
         return view('servico.add.create');

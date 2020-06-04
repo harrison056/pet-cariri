@@ -55,7 +55,7 @@
             <div class="icon">
                 <i class="fas fa-fw fa-paw"></i>
             </div>
-            <a href="/cliente/create" class="small-box-footer">Cadastrar novo serviço <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="/servico" class="small-box-footer">Ir para serviços <i class="fas fa-arrow-circle-right"></i></a>
         </div>
     </div>
 
