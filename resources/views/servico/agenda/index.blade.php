@@ -1,5 +1,7 @@
 @extends('adminlte::page')
 
+@section('title', 'PetCariri - Agenda')
+
 @section('content')
 
 @if($message = Session::get('success'))

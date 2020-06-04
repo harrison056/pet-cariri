@@ -1,5 +1,7 @@
 @extends('adminlte::page')
 
+@section('title', 'PetCariri - Cliente')
+
 @section('content')
 
 <! -- Form Cliente -->

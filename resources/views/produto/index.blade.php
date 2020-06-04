@@ -1,5 +1,7 @@
 @extends('adminlte::page')
 
+@section('title', 'PetCariri - Produtos')
+
 @section('content')
 
 <div class="card card-success">

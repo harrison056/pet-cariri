@@ -1,5 +1,7 @@
 @extends('adminlte::page')
 
+@section('title', 'PetCariri - Novo Cliente')
+
 @section('content')
 <script
 src="https://code.jquery.com/jquery-3.4.1.min.js"

@@ -62,5 +62,5 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::get('/index', 'UsuarioController@index')->name('index');
+Route::get('/index', 'UsuarioController@index')->name('index')->middleware('auth');
 Route::get('/home', 'HomeController@index')->name('home');

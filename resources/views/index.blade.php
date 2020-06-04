@@ -85,6 +85,7 @@
     </div>
     <!-- /.card-header -->
     <div class="card-body p-0">
+        @if( count($agenda) > 0 )
         <table class="table table-hover table-bordered">
             <thead>
                 <th>Cliente</th>
@@ -111,6 +112,11 @@
                 @endforeach
             </tbody>
         </table>
+        @else
+        <div class="card-body">
+            <p>Não há agenda para hoje...</p>
+        </div>
+        @endif
     </div>
     <!-- /.card-body -->
     <div class="card-footer text-center">
@@ -123,6 +129,8 @@
 <footer class="page-footer bg-default">
     <center>
         <img src="img/petpqn.png">
+        <br>    
+        <p>© 2020 - PetCariri. Todos os direitos reservados. </p>
     </center>
 </footer>
 

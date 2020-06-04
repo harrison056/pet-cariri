@@ -1,5 +1,7 @@
 @extends('adminlte::page')
 
+@section('title', 'PetCariri - Venda')
+
 @section('content')
 <style type="text/css">
 	#teste{
