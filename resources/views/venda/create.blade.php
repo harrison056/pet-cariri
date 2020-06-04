@@ -11,6 +11,11 @@
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
 <script type="text/javascript" src="{{url('js/venda.js')}}"></script>
 
+@if($message = Session::get('danger'))
+	<div class="alert alert-danger">
+		{{$message}}
+	</div>
+@endif
 
 	<div class="card card-info">
 		<div class="card-header">
@@ -75,7 +80,7 @@
 		    	</tr>
 		    </tbody>
 	    </table>
-	    <input type="hidden" name="valorFinal" id="valorFinal">
+	    <input type="hidden" name="valorFinal" id="valorFinal" value="0">
 	    <button type="submit" onclick='compra()' class="btn btn-info">Finalizar compra</button>
 	</form>	
 </div>

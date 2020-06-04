@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\AgendarServico;
 use App\Cliente;
+use App\Servico;
 use App\Venda;
 use App\Produto;
 use Illuminate\Support\Facades\Auth;
@@ -19,6 +20,7 @@ class UsuarioController extends Controller
         $cliente = Cliente::all()->where('user_id', Auth::user()->id);
         $venda = Venda::all()->where('user_id', Auth::user()->id);
         $produto = Produto::all()->where('user_id', Auth::user()->id);
+        $servico = Servico::all()->where('user_id', Auth::user()->id);
 
     	$m = Carbon::now();
     	$mytime = Carbon::parse($m)->format('Y/m/d');
@@ -27,7 +29,7 @@ class UsuarioController extends Controller
 		->where('user_id', Auth::user()->id)
 		->get();
         
-        return view('index', array('agenda' => $agenda, 'cliente' => $cliente, 'venda' => $venda, 'produto' => $produto, 'buscar' => null));
+        return view('index', array('agenda' => $agenda, 'cliente' => $cliente, 'venda' => $venda, 'produto' => $produto, 'servico' => $servico, 'buscar' => null));
     }
 
 }

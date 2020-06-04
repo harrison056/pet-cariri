@@ -49,13 +49,13 @@
         <!-- small box -->
         <div class="small-box bg-primary">
             <div class="inner">
-                <h3>+</h3>
-                <p>Adicionar Cliente</p>
+                <h3>{{ count($cliente) }}</h3>
+                <p>Serviços Cadastrados</p>
         </div>
             <div class="icon">
-                <i class="fas fa-user-plus"></i>
+                <i class="fas fa-fw fa-paw"></i>
             </div>
-            <a href="/cliente/create" class="small-box-footer">Ver Estoque <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="/cliente/create" class="small-box-footer">Cadastrar novo serviço <i class="fas fa-arrow-circle-right"></i></a>
         </div>
     </div>
 
@@ -85,7 +85,7 @@
         <div class="icon">
             <i class="fas fa-fw fa-shopping-cart"></i>
         </div>
-            <a href="/venda/create" class="small-box-footer">Ir para nova compra <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="/venda" class="small-box-footer">Ir para compras <i class="fas fa-arrow-circle-right"></i></a>
         </div>
     </div>
 </div>
