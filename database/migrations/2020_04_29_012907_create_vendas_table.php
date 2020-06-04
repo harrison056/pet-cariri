@@ -15,10 +15,10 @@ class CreateVendasTable extends Migration
     {
         Schema::create('vendas', function (Blueprint $table) {
             $table->id();
-            $table->integer('produto_id');
-            $table->integer('qtd');
+            $table->double('preco', 8, 2);
 
-            $table->integer('venda_id')->unsigned();
+            $table->integer('user_id')->unsigned();
+
             $table->timestamps();
         });
     }

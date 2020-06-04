@@ -27,6 +27,7 @@ class UsuarioController extends Controller
 		->where('user_id', Auth::user()->id)
 		->get();
         
-        return view('index', array('agenda' => $agenda, 'cliente' => $cliente, 'venda' => $venda, 'produto' => $produto));
+        return view('index', array('agenda' => $agenda, 'cliente' => $cliente, 'venda' => $venda, 'produto' => $produto, 'buscar' => null));
     }
+
 }

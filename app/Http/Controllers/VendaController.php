@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Produto;
+use App\VendaProduto;
+use App\Venda;
+use App\User;
 use Illuminate\Support\Facades\Auth;
 
 class VendaController extends Controller
@@ -17,9 +20,26 @@ class VendaController extends Controller
 
     public function store(Request $request)
     {
-        echo $request['produto'];
-        exit();
+
+        $user = User::find(Auth::user()->id);
+
+        $venda = $user->venda()->create([
+            'preco' => $request['valorFinal']
+        ]);
+
+        for ($i = 0; $i < count($request->produto_id); $i++) 
+        {
+            
+            $venda->venda_produto()->create([
+                'qtd_produto' => $request->qtd[$i],
+                'preco' => $request->precoCompra[$i],
+                'produto_id' => $request->produto_id[$i]
+            ]);
+        }
+        return redirect('/index');
     }
+
+
 
     public function getPreco($idProduto)
     {

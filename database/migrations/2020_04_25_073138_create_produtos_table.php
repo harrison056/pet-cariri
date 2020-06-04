@@ -19,7 +19,7 @@ class CreateProdutosTable extends Migration
             $table->string('nome');
             $table->string('descricao')->default("Sem descrição");
             $table->integer('qtd');
-            $table->double('preco');
+            $table->double('preco', 8, 2);
 
             $table->integer('user_id');
 

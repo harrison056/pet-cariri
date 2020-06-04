@@ -1,25 +1,27 @@
 function add(){
 
+	var produto_id = $('#produto option:selected').val();
 	var produto = $('#produto option:selected').text();
 	var qtd = $('#qtd').val();
 	var preco = $('#preco').val();
 
 	var precoCompra = parseFloat(preco) * parseInt(qtd);
-
+	
 	$('#carrinho').append(
 		'<tr>' +
+		'<td hidden> <input type="hidden" class="form-control" name="produto_id[]" value="' + produto_id + '"></td>'+
 		'<td>' + produto + '</td>' +
-		'<td>' + qtd + '</td>' +
-		'<td class="precoCompra">' + precoCompra + '</td>' +
+		'<td> <input type="hidden" class="form-control" name="qtd[]" value="' + qtd + '">' + qtd + '</td>' +
+		'<td class="precoCompra"> <input type="hidden" class="form-control" name="precoCompra[]" value="' + precoCompra + '">' + precoCompra + '</td>' +
 		'</tr>');
-
-	$('#teste').append('<input type="hidden" value= '+ produto +'  name="produto">');	
 
 	var valorFinal = 0;
 	$( ".precoCompra" ).each(function() {
       	valorFinal += parseFloat($( this ).text());
     });
 	$( "#total" ).text('R$ ' + valorFinal);
+	$( "#valorFinal" ).val(valorFinal);
+
 }
 
 $(document).ready(function(){
@@ -35,3 +37,12 @@ $(document).ready(function(){
 		});
 	});
 });
+
+function compra(){
+	var tableInfo = Array.prototype.map.call(document.querySelectorAll('#carrinho tr'), function(tr){
+		return Array.prototype.map.call(tr.querySelectorAll('td'), function(td){
+			return td.innerHTML;
+		});
+	});
+	console.log(tableInfo);
+}

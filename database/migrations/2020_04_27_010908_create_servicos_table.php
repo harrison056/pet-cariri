@@ -17,7 +17,7 @@ class CreateServicosTable extends Migration
             $table->id();
 
             $table->string('nome');
-            $table->double('preco');
+            $table->double('preco', 8, 2);
             $table->string('descricao')->default("Sem descrição");
             $table->integer('user_id');
             

@@ -49,14 +49,14 @@
 	        <p id="teste"></p>
 
 		 	<div class="card-body">
-		 		<button onclick='add()' type="submit" class="btn btn-primary">Add</button>
+		 		<button onclick='add()' type="button" class="btn btn-primary">Add</button>
 		 	</div>       
 
 		</div>	
 	</div>
 
 <div class="box box-primary">
-	
+	<form method="POST" enctype="multipart/form-data" action="{{url('venda')}}">
 	@csrf	
 		<table class="table table-hover table-bordered">
 		    <thead>
@@ -75,9 +75,9 @@
 		    	</tr>
 		    </tbody>
 	    </table>
-	    <p id="teste"></p>
-	    <button type="submit" class="btn btn-info">Finalizar compra</button>
-		
+	    <input type="hidden" name="valorFinal" id="valorFinal">
+	    <button type="submit" onclick='compra()' class="btn btn-info">Finalizar compra</button>
+	</form>	
 </div>
 
 

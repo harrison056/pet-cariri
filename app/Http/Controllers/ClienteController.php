@@ -176,7 +176,7 @@ class ClienteController extends Controller
 
 
     public function busca(Request $request){
-        $cliente = Cliente::where('nome', 'LIKE', '%'.$request->input('busca').'%')
+        $cliente = Cliente::where('nome', 'LIKE', '%'. $request->input('busca') .'%')
         ->where('user_id', 'LIKE', Auth::user()->id)
         ->paginate(10);
 
