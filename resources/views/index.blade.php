@@ -10,6 +10,25 @@
 @endif
 
 <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <form method="POST" action="{{url('cliente/busca')}}">
+            @csrf
+            <div class="input-group">
+                <input type="text" class="form-control" id="busca" name="busca" value="{{$buscar}}" placeholder="Buscar Clientes">
+                 <span class="input-group-btn">
+                    <button class="btn btn-outline-secondary">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </span>
+            </div>
+        </form>
+    </div>
+</div>
+    
+
+<br>
+<div class="row">
     <!-- Card cliente -->
     <div class="col-lg-3 col-6">
         <!-- small box -->
