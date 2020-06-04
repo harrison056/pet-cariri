@@ -8,11 +8,12 @@ function add(){
 	var precoCompra = parseFloat(preco) * parseInt(qtd);
 	
 	$('#carrinho').append(
-		'<tr>' +
+		'<tr id="linha">' +
 		'<td hidden> <input type="hidden" class="form-control" name="produto_id[]" value="' + produto_id + '"></td>'+
 		'<td>' + produto + '</td>' +
 		'<td> <input type="hidden" class="form-control" name="qtd[]" value="' + qtd + '">' + qtd + '</td>' +
 		'<td class="precoCompra"> <input type="hidden" class="form-control" name="precoCompra[]" value="' + precoCompra + '">' + precoCompra + '</td>' +
+		'<td><button type="button" onclick="remove()" class="btn btn-danger">X</button></td>' +
 		'</tr>');
 
 	var valorFinal = 0;
@@ -38,11 +39,13 @@ $(document).ready(function(){
 	});
 });
 
-function compra(){
-	var tableInfo = Array.prototype.map.call(document.querySelectorAll('#carrinho tr'), function(tr){
-		return Array.prototype.map.call(tr.querySelectorAll('td'), function(td){
-			return td.innerHTML;
-		});
-	});
-	console.log(tableInfo);
+function remove(){
+	$( "#linha" ).remove();
+	
+	var valorFinal = 0;
+	$( ".precoCompra" ).each(function() {
+      	valorFinal += parseFloat($( this ).text());
+    });
+	$( "#total" ).text('R$ ' + valorFinal);
+	$( "#valorFinal" ).val(valorFinal);
 }
