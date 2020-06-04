@@ -29,13 +29,17 @@ class VendaController extends Controller
 
         for ($i = 0; $i < count($request->produto_id); $i++) 
         {
-            
-            $venda->venda_produto()->create([
+            $venda_produto = $venda->venda_produto()->create([
                 'qtd_produto' => $request->qtd[$i],
                 'preco' => $request->precoCompra[$i],
                 'produto_id' => $request->produto_id[$i]
             ]);
+            //Baixa no estoque
+            $produto = Produto::find($venda_produto->produto_id);
+            $produto->qtd -= $venda_produto->qtd_produto;
+            $produto->save();
         }
+
         return redirect('/index');
     }
 
