@@ -14,7 +14,7 @@
     </div>
     <!-- /.card-header -->
     <div class="card-body p-0">
-    	<table class="table table-hover table-bordered">
+    	<table class="table table-head-fixed text-nowrap">
     		<thead>
                 <th>Nome</th>
                 <th>Valor</th>

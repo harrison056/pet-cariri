@@ -4,21 +4,22 @@
 @section('content')
 
 
-<div class="card">
-    <div class="card-header">
-        <h3 class="card-title">Vendas Realizadas</h3>
-
-        <div class="card-tools">
-            <span class="badge badge-success">{{ count($venda) }}  Vendas</span>
-            
+@foreach($venda as $vendas)
+    <div class="card">
+        <div class="card-header">
+            <h1 class="card-title">{{date("d/m/Y H:i", strtotime($vendas->created_at))}}</h1>
         </div>
-    </div>
-    <!-- /.card-header -->
-    <div class="card-body p-0">
-    	
-    </div>    
-    
-</div>
+        <!-- /.card-header -->
+        <div class="card-body">
+
+
+            
+        </div>  
+        <div class="card-footer">
+            <h4>Valor total: R$ {{ $vendas->preco }}</h4>
+        </div>  
+    </div>   
+@endforeach
 
 
 @endsection

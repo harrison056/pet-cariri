@@ -54,7 +54,7 @@
 </div>
 
 <div class="box box-primary">
-    <table class="table table-hover table-bordered">
+    <table class="table table-head-fixed text-nowrap">
         <thead>
             <th>Nome</th>
             <th>Descrição</th>
