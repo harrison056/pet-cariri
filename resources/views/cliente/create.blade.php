@@ -122,7 +122,12 @@ crossorigin="anonymous"></script>
 	        <! -- Pelagem Animal -->
 	        	<label for="inputEmail3" class="col-sm-1 col-form-label">Pelagem</label>
 	            	<div class="col-sm-4">
-	            		<input name="pelagem" class="form-control" id="inputEmail3" placeholder="Pelagem">
+	            		<select name="pelagem" class="form-control">
+    	            		<option disabled selected>------</option>
+    	            		<option value="Pequena">Pequena</option>
+    	            		<option value="Media">Média</option>
+    	            		<option value="Grande">Grande</option>
+    	            	</select>
 	            	</div>
 	        </div>
 	        <! -- Cor Animal -->
