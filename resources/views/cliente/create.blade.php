@@ -176,8 +176,7 @@ crossorigin="anonymous"></script>
 			<div class="form-group row">
 	        	<label for="inputEmail3" class="col-sm-2 col-form-label">Obserções Gerais</label>
 	            	<div class="col-sm-12">
-	            		<textarea  name="obs" class="form-control" placeholder="Obserções Gerais...">
-	            		</textarea>
+	            		<textarea name="obs" class="form-control" placeholder="Obserções Gerais..."></textarea>
 	            	</div>
 	        </div>
 

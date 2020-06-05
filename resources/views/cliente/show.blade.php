@@ -47,17 +47,24 @@
 @foreach($animal as $animals)
 <div class="card card-info">
 	<div class="card-header">
-		<h3 class="box-title"><b>Animal</b></h3>
+		<h3 class="box-title"><b>Animal - {{$animals->nome}}</b></h3>
 	</div>
 
-	<div>
+	<div class="card-body">
 		<ul>
-			<br>
-			<li><strong>Nome </strong> {{$animals->nome}}</li>
+			<li><strong>Espécie </strong> {{$animals->especie}}</li>
+			<li><strong>Pelagem </strong> {{ $animals->pelagem }}</li>
+			<li><strong>Cor </strong> {{ $animals->cor }}</li>
+			<li><strong>Porte </strong> {{ $animals->porte }}</li>
+			<li><strong>sexo </strong> {{ $animals->sexo }}</li>
+			<li><strong>Raca </strong> {{ $animals->raca }}</li>
+			<li><strong>Peso </strong> {{ $animals->peso }} Kg</li>
 		</ul>
-		<div class="card-body">
-			<a href="{{URL::to('animal/' .$animals->id. '/agendarservico')}}"><button type="submit" class="btn btn-primary">Agendar visita</button></a>
-		</div>
+		<p>{{ $animals->obs }}</p>
+
+	</div>
+	<div class="card-body">
+		<a href="{{URL::to('animal/' .$animals->id. '/agendarservico')}}"><button type="submit" class="btn btn-primary">Agendar visita</button></a>
 	</div>
 </div>
 @endforeach
@@ -125,7 +132,12 @@
 			<div class="form-group row">
 	        	<label for="especie" class="col-sm-2 col-form-label">Pelagem</label>
 	            	<div class="col-sm-6">
-	            		<input name="pelagem" class="form-control" id="inputEmail3" placeholder="Pelagem">
+	            		<select name="pelagem" class="form-control">
+    	            		<option disabled selected>------</option>
+    	            		<option value="Pequena">Pequena</option>
+    	            		<option value="Media">Média</option>
+    	            		<option value="Grande">Grande</option>
+    	            	</select>
 	            	</div>
 	        </div>     
 	        <! -- Cor Animal -->
@@ -177,8 +189,7 @@
 			<div class="form-group row">
 	        	<label for="inputEmail3" class="col-sm-4 col-form-label">Obserções Gerais</label>
 	            	<div class="col-sm-12">
-	            		<textarea  name="obs" class="form-control" placeholder="Obserções Gerais...">
-	            		</textarea>
+	            		<textarea  name="obs" class="form-control" placeholder="Obserções Gerais..."></textarea>
 	            	</div>
 	        </div>
 
