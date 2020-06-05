@@ -220,17 +220,6 @@ return [
             'icon' => 'fas fa-fw fa-shopping-cart',
         ],
         
-        ['header' => 'account_settings'],
-        [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
         ['header' => 'GERÊNCIA'],
         [
             'text'    => 'Clientes',
