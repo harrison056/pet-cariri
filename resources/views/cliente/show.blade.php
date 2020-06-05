@@ -49,8 +49,7 @@
 	<div class="card-header">
 		<h3 class="box-title"><b>Animal - {{$animals->nome}}</b></h3>
 	</div>
-
-	<div class="card-body">
+	<br>
 		<ul>
 			<li><strong>Espécie </strong> {{$animals->especie}}</li>
 			<li><strong>Pelagem </strong> {{ $animals->pelagem }}</li>
@@ -61,8 +60,6 @@
 			<li><strong>Peso </strong> {{ $animals->peso }} Kg</li>
 		</ul>
 		<p>{{ $animals->obs }}</p>
-
-	</div>
 	<div class="card-body">
 		<a href="{{URL::to('animal/' .$animals->id. '/agendarservico')}}"><button type="submit" class="btn btn-primary">Agendar visita</button></a>
 	</div>
