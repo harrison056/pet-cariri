@@ -49,6 +49,14 @@ class AgendarServicoController extends Controller
      */
     public function store(Request $request)
     {
+        $m = Carbon::now();
+        $mytime = Carbon::parse($m)->format('Y/m/d');
+
+        if($mytime->greaterThan($request['data'])){
+            echo 'foi';
+            exit();
+        }
+
         $a = Animal::find($request['animal_id']);
         $agenda = $a->agendarServico()->create([
             'data' => $request['data'],
