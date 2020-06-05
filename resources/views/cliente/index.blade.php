@@ -47,6 +47,28 @@
 @endforeach
 	
 {{$cliente->links()}}
-	
 
+@if($animal == null)
+
+@else
+@foreach($animal as $animals)
+	<div class="card card-info">
+		<div class="card-header">
+			<a href="{{URL::to('cliente')}}/{{$animals->cliente->id}}">
+				<h3 class="box-title"><b>{{$animals->cliente->nome}}</b></h3>
+			</a>
+		</div>
+		<div>
+			<ul>
+				<li><strong>Email</strong> {{$animals->cliente->email}}</li>
+				<li><strong>Telefone</strong> {{$animals->cliente->telefone}}</li>
+				<li><strong>Adicionado em: </strong> {{date("d/m/Y H:i", strtotime($animals->cliente->created_at))}}</li>
+			</ul>
+		</div>
+	</div>
+<br>	
+@endforeach
+	
+{{$animal->links()}}	
+@endif
 @endsection

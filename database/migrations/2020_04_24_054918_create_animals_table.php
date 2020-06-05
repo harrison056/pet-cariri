@@ -23,7 +23,7 @@ class CreateAnimalsTable extends Migration
             $table->string('sexo');
             $table->string('nome');
             $table->string('raca');
-            $table->double('peso');
+            $table->double('peso')->default(0);
             $table->string('obs')->default("Sem observações");
 
             $table->integer('cliente_id')->unsigned();

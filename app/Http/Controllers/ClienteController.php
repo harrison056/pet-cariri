@@ -21,7 +21,7 @@ class ClienteController extends Controller
         ->orderBy('nome', 'asc')
         ->paginate(5);
 
-        return view('cliente.index', array('cliente'=> $cliente,'buscar' => null));
+        return view('cliente.index', array('cliente'=> $cliente, 'animal' => null, 'buscar' => null));
     }
 
     /**
@@ -52,8 +52,7 @@ class ClienteController extends Controller
             'cep' => 'required',
             'email' => 'required|max:255',
             'animal' => 'required',
-            'raca' => 'required',
-            'peso' => 'numeric|required'
+            'raca' => 'required'
         ]);
 
         $cliente = Cliente::create([
@@ -180,7 +179,10 @@ class ClienteController extends Controller
         ->where('user_id', 'LIKE', Auth::user()->id)
         ->paginate(10);
 
-        return view('cliente.index', array('cliente' => $cliente, 'buscar' => $request->input('busca')));
+        $animal = Animal::where('nome', 'LIKE', '%'. $request->input('busca') .'%')
+        ->paginate(10);
+
+        return view('cliente.index', array('cliente' => $cliente, 'animal' => $animal, 'buscar' => $request->input('busca')));
     }
 
     
