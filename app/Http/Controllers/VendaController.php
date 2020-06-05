@@ -40,10 +40,24 @@ class VendaController extends Controller
                 'preco' => $request['valorFinal']
             ]);
 
+            $produto = $request->produto;
+            $aux = count($produto) - 1;
+            $soma = 0;
+            for ($i = 0; $i < count($produto); $i++)
+            {
+                if ($produto[$i] == $produto[$aux]) 
+                {
+                    $soma += $request->qtd[$i];
+                }
+                $aux --;
+            }
+
             for ($i = 0; $i < count($request->produto_id); $i++) 
             {
                 $produto = Produto::find($request->produto_id[$i]);
-                if ($produto->qtd < $request->qtd[$i]) {
+                if ( $produto->qtd < $request->qtd[$i] ) {
+                    return back()->with('danger', 'Quantidade solicitada de ' .$produto->nome.' maior que o estoque!');
+                }elseif ( $soma > $produto->qtd ) {
                     return back()->with('danger', 'Quantidade solicitada de ' .$produto->nome.' maior que o estoque!');
                 }else{
                     $venda_produto = $venda->venda_produto()->create([
