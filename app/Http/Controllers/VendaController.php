@@ -14,8 +14,9 @@ class VendaController extends Controller
 
     public function index()
     {
-        $venda = Venda::all()
-        ->where('user_id', Auth::user()->id);
+        $venda = Venda::where('user_id', Auth::user()->id)
+        ->orderBy('created_at', 'asc')
+        ->paginate(10);
 
         return view('venda.index', array('venda' => $venda));
     }
@@ -42,13 +43,14 @@ class VendaController extends Controller
             for ($i = 0; $i < count($request->produto_id); $i++) 
             {
                 $produto = Produto::find($request->produto_id[$i]);
-                if ($produto->qtd > $request->qtd[$i]) {
+                if ($produto->qtd < $request->qtd[$i]) {
                     return back()->with('danger', 'Quantidade solicitada de ' .$produto->nome.' maior que o estoque!');
                 }else{
                     $venda_produto = $venda->venda_produto()->create([
                         'qtd_produto' => $request->qtd[$i],
                         'preco' => $request->precoCompra[$i],
-                        'produto_id' => $request->produto_id[$i]
+                        'produto_id' => $request->produto_id[$i],
+                        'produto' => $request->produto[$i]
                     ]);
                     //Baixa no estoque
                     $produto->qtd -= $venda_produto->qtd_produto;

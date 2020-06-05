@@ -10,7 +10,7 @@ function add(){
 	$('#carrinho').append(
 		'<tr id="linha">' +
 		'<td hidden> <input type="hidden" class="form-control" name="produto_id[]" value="' + produto_id + '"></td>'+
-		'<td>' + produto + '</td>' +
+		'<td> <input type="hidden" class="form-control" name="produto[]" value="' + produto + '">' + produto + '</td>' +
 		'<td> <input type="hidden" class="form-control" name="qtd[]" value="' + qtd + '">' + qtd + '</td>' +
 		'<td class="precoCompra"> <input type="hidden" class="form-control" name="precoCompra[]" value="' + precoCompra + '">' + precoCompra + '</td>' +
 		'<td><button type="button" onclick="remove()" class="btn btn-danger">X</button></td>' +

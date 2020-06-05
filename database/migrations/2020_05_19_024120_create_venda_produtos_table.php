@@ -16,6 +16,7 @@ class CreateVendaProdutosTable extends Migration
         Schema::create('venda_produtos', function (Blueprint $table) {
             $table->id();
             $table->double('preco');
+            $table->string('produto');
             $table->integer('qtd_produto');
 
             $table->integer('produto_id')->unsigned();
