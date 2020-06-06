@@ -58,11 +58,10 @@
 			<li><strong>sexo </strong> {{ $animals->sexo }}</li>
 			<li><strong>Raca </strong> {{ $animals->raca }}</li>
 			<li><strong>Peso </strong> {{ $animals->peso }} Kg</li>
+			<p>{{ $animals->obs }}</p>
+			<a href="{{URL::to('animal/' .$animals->id. '/agendarservico')}}"><button type="submit" class="btn btn-primary">Agendar visita</button></a>
 		</ul>
-		<p>{{ $animals->obs }}</p>
-	<div class="card-body">
-		<a href="{{URL::to('animal/' .$animals->id. '/agendarservico')}}"><button type="submit" class="btn btn-primary">Agendar visita</button></a>
-	</div>
+	
 </div>
 @endforeach
 
