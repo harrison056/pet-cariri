@@ -33,6 +33,14 @@
                     @else
                     <td>Não realizado</td>
                     @endif
+                    <td>
+                        <form method="POST" action="{{action('AgendarServicoController@destroy', $agendas->id)}}">
+                        @csrf
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button class="btn btn-danger">Excluir</button>
+                        </form>
+                        
+                    </td>
                 </tr>
             @endforeach
         </tbody>

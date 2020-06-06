@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DateTime;
 use App\Animal;
 use App\Servico;
+use Carbon\Carbon;
 use App\AgendarServico;
 use Illuminate\Support\Facades\Auth;
 
@@ -49,28 +51,28 @@ class AgendarServicoController extends Controller
      */
     public function store(Request $request)
     {
-        $m = Carbon::now();
-        $mytime = Carbon::parse($m)->format('Y/m/d');
-
-        if($mytime->greaterThan($request['data'])){
-            echo 'foi';
-            exit();
+        $data =Carbon::parse($request['data']);
+        $today = Carbon::now();
+        if( $data < $today )
+        {
+            return back()->with('danger', 'Data inválida');
+        }else{
+            $a = Animal::find($request['animal_id']);
+            $agenda = $a->agendarServico()->create([
+                'data' => $request['data'],
+                'hora' => $request['hora'],
+                'servico' => $request ['servico_id'],
+                'user_id' => Auth::user()->id,
+                'descricao' => $request['descricao'],
+                'preco' => $request['preco']
+            ]);
+            if ($request['status'] == 1) {
+                $agenda->status = $request['status'];
+            }
+            $agenda->save();
+            return redirect('index/')->with('success', 'Agendado!');
         }
 
-        $a = Animal::find($request['animal_id']);
-        $agenda = $a->agendarServico()->create([
-            'data' => $request['data'],
-            'hora' => $request['hora'],
-            'servico' => $request ['servico_id'],
-            'user_id' => Auth::user()->id,
-            'descricao' => $request['descricao'],
-            'preco' => $request['preco']
-        ]);
-        if ($request['status'] == 1) {
-            $agenda->status = $request['status'];
-        }
-        $agenda->save();
-        return redirect('index/')->with('success', 'Agendado!');
     }
 
     /**
