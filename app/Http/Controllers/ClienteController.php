@@ -52,7 +52,12 @@ class ClienteController extends Controller
             'cep' => 'required',
             'email' => 'required|max:255',
             'animal' => 'required',
-            'raca' => 'required'
+            'raca' => 'required',
+            'especie' => 'required',
+            'pelagem' => 'required',
+            'porte' => 'required',
+            'raca' => 'required',
+            'sexo' => 'required'
         ]);
 
         $cliente = Cliente::create([

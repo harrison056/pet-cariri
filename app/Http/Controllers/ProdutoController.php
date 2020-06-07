@@ -30,6 +30,13 @@ class ProdutoController extends Controller
      */
     public function store(Request $request)
     {
+
+        $this->validate($request,[
+            'nome' => 'required',
+            'qtd' => 'required',
+            'preco' => 'required'
+        ]);
+
         $produto = Produto::create([
             'nome' => $request['nome'],
             'descricao' => $request['descricao'],

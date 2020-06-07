@@ -12,6 +12,23 @@
 	<div class="card-body">
     	<form class="form-horizontal" method="POST" enctype="multipart/form-data" action="{{url('produto')}}">
         @csrf
+        <! -- Mensagem Erro -->
+        @if($message = Session::get('danger'))
+            <div class="alert alert-danger">
+                {{$message}}
+            </div>
+        @endif
+
+        @if(count($errors)>0)
+        <div class="alert alert-danger">
+            <ul>
+                @foreach($errors->all() as $error)
+                <li>{{$error}}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
+
         	<div class="form-group row">
         		<! -- Campo Produto -->
                 	<label for="inputEmail3" class="col-sm-1 col-form-label">Produto</label>

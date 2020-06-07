@@ -10,6 +10,16 @@ class AnimalController extends Controller
     public function store(Request $request)
     {
 
+        $this->validate($request,[
+            'animal' => 'required',
+            'raca' => 'required',
+            'especie' => 'required',
+            'pelagem' => 'required',
+            'porte' => 'required',
+            'raca' => 'required',
+            'sexo' => 'required'
+        ]);
+
     	$cliente = Cliente::find($request['cliente_id']);
 
     	$cliente->animal()->create([

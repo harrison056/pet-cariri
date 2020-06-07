@@ -110,6 +110,23 @@
             <form method="POST" action="{{action('AnimalController@store')}}">
             @csrf
             <div class="modal-body">
+            	<! -- Mensagem Erro -->
+				
+					@if($message = Session::get('danger'))
+						<div class="alert alert-danger">
+							{{$message}}
+						</div>
+					@endif
+
+			    	@if(count($errors)>0)
+					<div class="alert alert-danger">
+						<ul>
+							@foreach($errors->all() as $error)
+							<li>{{$error}}</li>
+							@endforeach
+						</ul>
+					</div>
+					@endif
               <! -- Nome Animal -->
 			<div class="form-group row">
 	        	<label for="inputEmail3" class="col-sm-2 col-form-label">Nome</label>
