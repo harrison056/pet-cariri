@@ -51,12 +51,15 @@ class AgendarServicoController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request,[
+            'data' => 'required|',
+            'hora' => 'required',
+            'servico' => 'required'
+        ]);
+
         $data =Carbon::parse($request['data']);
         $today = Carbon::now();
-        if( $data < $today )
-        {
-            return back()->with('danger', 'Data inválida');
-        }else{
+        if( $data >= $today ) {
             $a = Animal::find($request['animal_id']);
             $agenda = $a->agendarServico()->create([
                 'data' => $request['data'],
@@ -71,6 +74,8 @@ class AgendarServicoController extends Controller
             }
             $agenda->save();
             return redirect('index/')->with('success', 'Agendado!');
+        }else{
+            return back()->with('danger', 'Data inválida');
         }
 
     }
