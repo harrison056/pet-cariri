@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Animal extends Model
 {
-    protected $fillable = ['nome', 'raca', 'peso', 'especie', 'pelagem', 'cor','porte','sexo','cliente_id', 'obs'];
+    protected $fillable = ['nome', 'raca', 'peso', 'especie', 'pelagem', 'cor','porte','sexo','cliente_id'];
+    protected $attributes = ['obs' => 'Sem observações'];
     
     public function cliente()
     {
