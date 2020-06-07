@@ -25,6 +25,11 @@ class ServicoController extends Controller
     public function store(Request $request)
     {
 
+        $this->validate($request,[
+            'nome' => 'required',
+            'preco' => 'required|numeric'
+        ]);
+
     	$servico = Servico::create([
             'nome' => $request['nome'],
             'preco' => $request['preco'],

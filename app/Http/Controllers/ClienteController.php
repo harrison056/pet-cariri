@@ -45,7 +45,7 @@ class ClienteController extends Controller
 
         $this->validate($request,[
             'nome' => 'required|max:255',
-            'tel' => 'required',
+            'telefone' => 'required|min:7',
             'rua' => 'required',
             'bairro' => 'required',
             'cidade' => 'required',
@@ -57,40 +57,44 @@ class ClienteController extends Controller
             'pelagem' => 'required',
             'porte' => 'required',
             'raca' => 'required',
-            'sexo' => 'required'
+            'sexo' => 'required',
+            'peso' => 'numeric'
         ]);
 
-        $cliente = Cliente::create([
-            'nome' => $request['nome'],
-            'telefone' => $request['tel'],
-            'email' => $request['email'],
-            'user_id' => Auth::user()->id
-        ]);
+        try {
+            $cliente = Cliente::create([
+                'nome' => $request['nome'],
+                'telefone' => $request['telefone'],
+                'email' => $request['email'],
+                'user_id' => Auth::user()->id
+            ]);
 
-        $cliente->endereco()->create([
-            'rua' => $request['rua'],
-            'bairro' => $request['bairro'],
-            'cidade' => $request['cidade'],
-            'cep' => $request['cep'],
-        ]);    
+            $cliente->endereco()->create([
+                'rua' => $request['rua'],
+                'bairro' => $request['bairro'],
+                'cidade' => $request['cidade'],
+                'cep' => $request['cep'],
+            ]);    
 
-        $cliente->animal()->create([
-            'nome' => $request['animal'],
-            'especie' => $request['especie'],
-            'pelagem' => $request['pelagem'],
-            'cor' => $request['cor'],
-            'porte' => $request['porte'],
-            'sexo' => $request['sexo'],
-            'raca' => $request['raca'],
-            'peso' => $request['peso'],
-            'obs' => $request['obs']
-        ]);
+            $cliente->animal()->create([
+                'nome' => $request['animal'],
+                'especie' => $request['especie'],
+                'pelagem' => $request['pelagem'],
+                'cor' => $request['cor'],
+                'porte' => $request['porte'],
+                'sexo' => $request['sexo'],
+                'raca' => $request['raca'],
+                'peso' => $request['peso'],
+                'obs' => $request['obs']
+            ]);
 
-        
-        if ($cliente->save()) {
-            return redirect('cliente/')->with('success', 'Cliente cadastrado com sucesso!');
+            
+            if ($cliente->save()) {
+                return redirect('cliente/')->with('success', 'Cliente cadastrado com sucesso!');
         }
-
+        } catch (Exception $e) {
+            return back();
+        }
     }
 
     /**

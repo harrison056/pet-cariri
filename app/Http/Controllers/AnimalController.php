@@ -17,7 +17,8 @@ class AnimalController extends Controller
             'pelagem' => 'required',
             'porte' => 'required',
             'raca' => 'required',
-            'sexo' => 'required'
+            'sexo' => 'required',
+            'peso' => 'numeric'
         ]);
 
     	$cliente = Cliente::find($request['cliente_id']);

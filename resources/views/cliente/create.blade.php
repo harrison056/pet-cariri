@@ -59,7 +59,7 @@ crossorigin="anonymous"></script>
             <div class="form-group row">
             	<label for="inputEmail3" class="col-sm-1 col-form-label">Telefone</label>
             	<div class="col-sm-8">
-            		<input name="tel" class="form-control" id="tel" placeholder="Telefone">
+            		<input name="telefone" class="form-control" id="telefone" placeholder="Telefone">
             	</div>
             </div>
 
@@ -195,7 +195,7 @@ crossorigin="anonymous"></script>
 
 
 <script type="text/javascript">
-	$('#tel').mask('(99)99999-9999');
+	$('#telefone').mask('(99)99999-9999');
     $('#cep').mask('00000-000');
 </script>
 
