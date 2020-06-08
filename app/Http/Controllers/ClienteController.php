@@ -45,12 +45,12 @@ class ClienteController extends Controller
 
         $this->validate($request,[
             'nome' => 'required|max:255',
-            'telefone' => 'required|min:7',
+            'telefone' => 'required|min:11|unique:clientes',
             'rua' => 'required',
             'bairro' => 'required',
             'cidade' => 'required',
-            'cep' => 'required',
-            'email' => 'required|max:255',
+            'cep' => 'required|min:11',
+            'email' => 'required|max:255|unique:svn_client_version()',
             'animal' => 'required',
             'raca' => 'required',
             'especie' => 'required',
