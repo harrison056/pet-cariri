@@ -30,13 +30,21 @@ class ServicoController extends Controller
             'preco' => 'required|numeric'
         ]);
 
-    	$servico = Servico::create([
+
+        if ( empty ($request['descricao']) ){
+            $descricao = ($request['descricao']);
+        }else{
+            $descricao = 'Sem descricão';
+        }
+    
+    
+        $servico = Servico::create([
             'nome' => $request['nome'],
             'preco' => $request['preco'],
-            'descricao' => $request['descricao'],
+            'descricao' => $descricao,
             'user_id' => Auth::user()->id
-        ]);    
-
+        ]);
+        
         if ($servico->save()) {
             return redirect('servico/create')->with('success', 'Serviço cadastrado');
         }

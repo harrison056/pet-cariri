@@ -21,6 +21,12 @@ class AnimalController extends Controller
             'peso' => 'numeric'
         ]);
 
+        if ( empty($request['obs']) ) {
+            $obs = 'Sem observações';
+        }else{
+            $obs = $request['obs'];
+        }
+
     	$cliente = Cliente::find($request['cliente_id']);
 
     	$cliente->animal()->create([
@@ -32,7 +38,7 @@ class AnimalController extends Controller
             'sexo' => $request['sexo'],
             'raca' => $request['raca'],
             'peso' => $request['peso'],
-            'obs' => $request['obs']
+            'obs' => $obs
         ]);
 
         return redirect('cliente/' .$cliente->id)->with('success', 'Animal cadastrado com sucesso!');

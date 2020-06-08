@@ -6,8 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Servico extends Model
 {
-    protected $fillable = ['nome', 'preco', 'user_id'];
-    protected $attributes = ['descricao' => 'Sem descrição'];
+    protected $fillable = ['nome', 'preco', 'user_id', 'descricao'];
 
     public function agendarServico()
     {

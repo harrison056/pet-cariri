@@ -37,9 +37,16 @@ class ProdutoController extends Controller
             'preco' => 'required'
         ]);
 
+        if ( empty($request['descricao']) ) {
+            $descricao = 'Sem descrição';
+        }else{
+            $descricao = $request['descricao'];
+        }
+        
+
         $produto = Produto::create([
             'nome' => $request['nome'],
-            'descricao' => $request['descricao'],
+            'descricao' => $descricao,
             'qtd' => $request['qtd'],
             'preco' => $request['preco'],
             'user_id' => Auth::user()->id
