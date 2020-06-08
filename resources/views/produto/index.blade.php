@@ -47,7 +47,7 @@
                 <! -- Campo Preço -->
                 <label for="inputEmail3" class="col-sm-1.5 col-form-label">Preço</label>
                 <div class="col-sm-2">
-                    <input name="preco" type="number" class="form-control" step="0.01">
+                    <input name="preco" type="number" min="0" class="form-control" step="0.01">
                 </div>
         	</div>
             <br>

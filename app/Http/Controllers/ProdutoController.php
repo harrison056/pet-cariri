@@ -32,9 +32,10 @@ class ProdutoController extends Controller
     {
 
         $this->validate($request,[
-            'nome' => 'required',
+            'nome' => 'required|max:100',
             'qtd' => 'required',
-            'preco' => 'required'
+            'preco' => 'required',
+            'descricao' => 'max:255'
         ]);
 
         if ( empty($request['descricao']) ) {
