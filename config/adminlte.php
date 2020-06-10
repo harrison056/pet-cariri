@@ -215,7 +215,7 @@ return [
         ],
         
         [
-            'text' => 'Realizar Compra',
+            'text' => 'Realizar Venda',
             'url'  => 'venda/create',
             'icon' => 'fas fa-fw fa-shopping-cart',
         ],
