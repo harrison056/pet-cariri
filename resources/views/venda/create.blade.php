@@ -39,7 +39,7 @@
 	            
 	            <label class="col-sm-1.5 col-form-label" for="qtd">Quantidade</label>
 	            <div class="col-sm-1">
-	            	<input type="number" class="form-control" id="qtd" min="1">
+	            	<input type="number" class="form-control" id="qtd" min="1" oninput="validity.valid||(value='');">
 	            </div>
 	            
 	            <div class="col-sm-1">
