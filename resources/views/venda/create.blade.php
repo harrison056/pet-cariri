@@ -39,7 +39,7 @@
 	            
 	            <label class="col-sm-1.5 col-form-label" for="qtd">Quantidade</label>
 	            <div class="col-sm-1">
-	            	<input type="number" class="form-control" id="qtd" placeholder="0">
+	            	<input type="number" min="1" class="form-control" id="qtd" placeholder="0">
 	            </div>
 	            
 	            <div class="col-sm-1">
@@ -81,7 +81,7 @@
 		    </tbody>
 	    </table>
 	    <input type="hidden" name="valorFinal" id="valorFinal" value="0">
-	    <button type="submit" onclick='compra()' class="btn btn-info">Finalizar compra</button>
+	    <button type="submit" onclick='compra()' class="btn btn-info">Finalizar venda</button>
 	</form>	
 </div>
 
