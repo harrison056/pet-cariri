@@ -63,6 +63,14 @@ crossorigin="anonymous"></script>
             	</div>
             </div>
 
+            <! -- Campo Cpf -->
+            <div class="form-group row">
+            	<label for="inputEmail3" class="col-sm-1 col-form-label">Cpf</label>
+            	<div class="col-sm-8">
+            		<input name="cpf" class="form-control" id="cpf" placeholder="Cpf">
+            	</div>
+            </div>
+
             <! -- Campo Endereço -->
             <div class="form-group row">
             	<label for="inputEmail3" class="col-sm-1 col-form-label">Endereço</label>
@@ -197,6 +205,7 @@ crossorigin="anonymous"></script>
 <script type="text/javascript">
 	$('#telefone').mask('(99)99999-9999');
     $('#cep').mask('00000-000');
+    $('#cpf').mask('000.000.000-00');
 </script>
 
 @endsection

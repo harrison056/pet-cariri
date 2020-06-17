@@ -46,6 +46,7 @@ class ClienteController extends Controller
         $this->validate($request,[
             'nome' => 'required|max:255',
             'telefone' => 'required|min:11|unique:clientes',
+            'cpf' => 'required|unique:clientes',
             'rua' => 'required',
             'bairro' => 'required',
             'cidade' => 'required',
@@ -66,6 +67,7 @@ class ClienteController extends Controller
                 'nome' => $request['nome'],
                 'telefone' => $request['telefone'],
                 'email' => $request['email'],
+                'cpf' => $request['cpf'],
                 'user_id' => Auth::user()->id
             ]);
 

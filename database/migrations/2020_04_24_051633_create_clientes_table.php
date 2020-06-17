@@ -18,6 +18,7 @@ class CreateClientesTable extends Migration
 
             $table->string('nome');
             $table->string('telefone');
+            $table->string('cpf');
             $table->string('email');
 
             $table->integer('user_id')->unsigned();

@@ -27,6 +27,7 @@
 			<br>
 			<li><strong>Email</strong> {{$cliente->email}}</li>
 			<li><strong>Telefone</strong> {{$cliente->telefone}}</li>
+			<li><strong>Cpf</strong> {{$cliente->cpf}}</li>
 
 			<li><strong>Rua</strong> {{$endereco->rua}}</li>
 			<li><strong>Bairro</strong> {{$endereco->bairro}}</li>

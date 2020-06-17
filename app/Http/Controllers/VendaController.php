@@ -16,7 +16,7 @@ class VendaController extends Controller
     {
         $venda = Venda::where('user_id', Auth::user()->id)
         ->orderBy('created_at', 'asc')
-        ->paginate(10);
+        ->paginate(8);
 
         return view('venda.index', array('venda' => $venda));
     }
