@@ -246,8 +246,24 @@ return [
         [
             'text' => 'Produtos',
             'url'  => 'produto',
-            'icon' => 'fas fa-fw  fa-clone',
-        ]
+            'icon' => 'fas fa-fw  fa-archive',
+        ],
+        [
+            'text'    => 'Relatórios',
+            'icon'    => 'fas fa-fw  fa-clone',
+            'submenu' => [
+                [
+                    'text' => 'Vendas',
+                    'url'  => 'venda',
+                ],
+                [
+                    'text'    => 'Estoque',
+                    'url'     => '',
+                    
+                ],
+                
+            ],
+        ],
     ],
 
     /*
