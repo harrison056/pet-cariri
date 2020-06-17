@@ -33,6 +33,7 @@ Route::post('/cliente/busca', 'ClienteController@busca')->middleware('auth');
 
 //rotas produto
 Route::resource('/produto','ProdutoController')->middleware('auth');
+Route::get('/relatorio_estoque', 'ProdutoController@relatorio');
 
 //rotas venda
 Route::resource('/venda','VendaController')->middleware('auth');

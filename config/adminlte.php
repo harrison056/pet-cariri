@@ -258,7 +258,7 @@ return [
                 ],
                 [
                     'text'    => 'Estoque',
-                    'url'     => '',
+                    'url'     => 'relatorio_estoque',
                     
                 ],
                 

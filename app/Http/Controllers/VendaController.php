@@ -52,7 +52,7 @@ class VendaController extends Controller
                 $aux --;
             }
 
-            for ($i = 0; $i < count($request->produto_id); $i++) 
+            for ($i = 0; $i < count( $request->produto_id ); $i++) 
             {
                 $produto = Produto::find($request->produto_id[$i]);
                 if ( $produto->qtd < $request->qtd[$i] ) {
