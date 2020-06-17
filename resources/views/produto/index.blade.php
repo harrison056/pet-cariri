@@ -85,8 +85,9 @@
                     <td>{{ $produtos->nome }}</td>
                     <td>{{ $produtos->descricao }}</td>
                     <td>{{ $produtos->qtd }}</td>
-                    <td>{{ $produtos->preco }}</td>
+                    <td>R$ {{ $produtos->preco }}</td>
                     <td>{{date("d/m/Y", strtotime($produtos->created_at))}}</td>
+                    <td><a href="produto/{{ $produtos->id }}/edit">Alterar</a></td>
                 </tr>
             @endforeach
         </tbody>

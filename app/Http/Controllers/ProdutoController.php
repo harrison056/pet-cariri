@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Produto;
+use App\VendaProduto;
+use App\User;
+use App\Venda;
 use Illuminate\Support\Facades\Auth;
 
 class ProdutoController extends Controller
@@ -18,7 +21,7 @@ class ProdutoController extends Controller
         $produto = Produto::where('user_id', 'LIKE', Auth::user()->id)
         ->orderBy('created_at', 'asc')
         ->paginate(30);
-
+        
         return view('produto.index', array('produto'=> $produto,'buscar' => null));
     }
 
@@ -66,7 +69,13 @@ class ProdutoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $produto = Produto::find($id);
+
+        if ($produto->user_id == Auth::user()->id) {
+            return view('produto.edit', compact('produto', 'id'), array('produto' => $produto));
+        }else{
+            echo "Nop!!";
+        }
     }
 
     /**
@@ -77,8 +86,23 @@ class ProdutoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        //
+    {   
+        if ( empty($request['descricao']) ) {
+            $descricao = 'Sem descrição';
+        }else{
+            $descricao = $request['descricao'];
+        }
+        
+        $produto = Produto::find($id);
+
+        $produto->nome = $request->get('nome');
+        $produto->qtd = $request->get('qtd');
+        $produto->preco = $request->get('preco');
+        $produto->descricao = $descricao;
+
+        if ($produto->save()) {
+            return redirect('produto/');
+        }
     }
 
     /**
@@ -90,5 +114,12 @@ class ProdutoController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function relatorio()
+    {
+        $venda = User::find(Auth::user()->id)->venda()->get();
+        
+        return view('produto.relatorio', array('venda'=> $venda));
     }
 }
