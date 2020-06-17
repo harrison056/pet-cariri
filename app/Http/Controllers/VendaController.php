@@ -93,4 +93,15 @@ class VendaController extends Controller
         
         return $qtd;
     }
+
+    public function show($id)
+    {
+        $venda = Venda::find($id);
+
+        if ($venda->user_id == Auth::user()->id) {
+            return view('venda.show', array('venda' => $venda));
+        }else{
+            echo "Nop!!";
+        }
+    }
 }
