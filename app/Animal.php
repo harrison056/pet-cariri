@@ -17,4 +17,9 @@ class Animal extends Model
     {
        	return $this->hasMany('App\AgendarServico');
     }
+
+    public function vacina()
+    {
+       	return $this->hasMany('App\vacina');
+    }
 }
