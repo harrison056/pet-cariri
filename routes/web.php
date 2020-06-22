@@ -58,7 +58,7 @@ Route::post('/animal','AnimalController@store');
 
 //rotas agendamento de servico
 Route::post('/vacinas','VacinaController@store')->middleware('auth');
-Route::get('/animal/{animal}/vacinas', 'VacinaController@create')->middleware('auth');
+Route::get('/animal/{animal}/vacinas', 'VacinaController@index')->middleware('auth');
 
 
 Auth::routes();
