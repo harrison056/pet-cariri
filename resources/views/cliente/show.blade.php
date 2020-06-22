@@ -60,7 +60,14 @@
 			<li><strong>Raca </strong> {{ $animals->raca }}</li>
 			<li><strong>Peso </strong> {{ $animals->peso }} Kg</li>
 			<p>{{ $animals->obs }}</p>
-			<a href="{{URL::to('animal/' .$animals->id. '/agendarservico')}}"><button type="submit" class="btn btn-primary">Agendar visita</button></a>
+			<div class="row">
+				<div class="col-sm-2">
+					<a href="{{URL::to('animal/' .$animals->id. '/agendarservico')}}"><button type="submit" class="btn btn-info">Agendar visita</button></a>
+				</div>
+				<div class="col-sm-2">
+					<a href="{{URL::to('animal/' .$animals->id. '/vacinas')}}"><button type="submit" class="btn btn-info">Vacinas</button></a>
+				</div>
+			</div>
 		</ul>
 	
 </div>
