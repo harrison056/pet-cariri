@@ -56,6 +56,10 @@ Route::delete('/agenda/{id}', 'AgendarServicoController@destroy')->middleware('a
 //rota cadastro de animal
 Route::post('/animal','AnimalController@store');
 
+//rotas agendamento de servico
+Route::post('/vacinas','VacinaController@store')->middleware('auth');
+Route::get('/animal/{animal}/vacinas', 'VacinaController@create')->middleware('auth');
+
 
 Auth::routes();
 
