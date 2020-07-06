@@ -69,7 +69,10 @@
     </div>
 
 </div>
-
+<div>
+    <a href="/relatorio_estoque/pdf"><button class="btn btn-outline-success">Gerar PDF Estoque</button></a>
+</div>
+<br>
 <div class="box box-primary">
     <table class="table table-head-fixed text-nowrap">
         <thead>

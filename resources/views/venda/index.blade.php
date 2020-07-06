@@ -3,7 +3,10 @@
 @section('title', 'PetCariri - Vendas')
 @section('content')
 
-
+<div>
+    <a href="/relatorio_venda/1/pdf"><button class="btn btn-outline-info">Relatório mês atual</button></a>
+</div>
+<br>
 @foreach($venda as $vendas)
     <div class="card">
         <div class="card-header">

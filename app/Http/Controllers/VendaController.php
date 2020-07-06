@@ -7,6 +7,8 @@ use App\Produto;
 use App\VendaProduto;
 use App\Venda;
 use App\User;
+use Carbon\Carbon;
+use PDF;
 use Illuminate\Support\Facades\Auth;
 
 class VendaController extends Controller
@@ -103,5 +105,27 @@ class VendaController extends Controller
         }else{
             echo "Nop!!";
         }
+    }
+
+    public function gerarPdf($id)
+    {
+        $m = Carbon::now();
+        $mytime = Carbon::parse($m)->format('m');
+        $venda = Venda::all()->where('user_id', Auth::user()->id);
+        
+        $count = 0;
+
+        if ($id == 1) {
+            for ($i=0; $i < count($venda); $i++) { 
+                $dataVenda = date("m", strtotime($venda[$i]->created_at));
+                if ( $dataVenda == $mytime ) {
+                    $vendaFinal[$count] = $venda[$i];
+                    $count ++;
+                }
+            }
+        }
+
+        $pdf = PDF::loadView('venda.relatorio_venda', array('vendaFinal'=> $vendaFinal, 'dataVenda'=> $dataVenda));
+        return $pdf->setPaper('a4')->stream();  
     }
 }

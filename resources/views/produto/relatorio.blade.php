@@ -4,6 +4,11 @@
 
 @section('content')
 
+<div>
+	<a href="/relatorio_baixa_estoque/pdf"><button class="btn btn-info">Gerar PDF</button></a>
+</div>
+<br>
+
 <table class="table table-hover table-bordered">
 	<thead>
 		<th>Produto</th>

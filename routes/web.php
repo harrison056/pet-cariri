@@ -34,11 +34,14 @@ Route::post('/cliente/busca', 'ClienteController@busca')->middleware('auth');
 //rotas produto
 Route::resource('/produto','ProdutoController')->middleware('auth');
 Route::get('/relatorio_estoque', 'ProdutoController@relatorio');
+Route::get('/relatorio_estoque/pdf', 'ProdutoController@gerarPdf')->middleware('auth');
+Route::get('/relatorio_baixa_estoque/pdf', 'ProdutoController@gerarPdfBaixa')->middleware('auth');
 
 //rotas venda
 Route::resource('/venda','VendaController')->middleware('auth');
 Route::get('/get-preco/{idProduto}', 'VendaController@getPreco')->middleware('auth');
 Route::get('/get-qtd/{idProduto}', 'VendaController@getQtd')->middleware('auth');
+Route::get('/relatorio_venda/{id}/pdf', 'VendaController@gerarPdf')->middleware('auth');
 
 //rotas servico
 Route::resource('/servico','ServicoController')->middleware('auth');

@@ -7,6 +7,7 @@ use App\Produto;
 use App\VendaProduto;
 use App\User;
 use App\Venda;
+use PDF;
 use Illuminate\Support\Facades\Auth;
 
 class ProdutoController extends Controller
@@ -121,5 +122,22 @@ class ProdutoController extends Controller
         $venda = User::find(Auth::user()->id)->venda()->get();
         
         return view('produto.relatorio', array('venda'=> $venda));
+    }
+
+    public function gerarPdf()
+    {
+        $produto = Produto::all()
+        ->where('user_id', 'LIKE', Auth::user()->id);
+
+        $pdf = PDF::loadView('produto.pdf', array('produto'=> $produto));
+        return $pdf->setPaper('a4')->stream();  
+    }
+
+    public function gerarPdfBaixa()
+    {
+        $venda = User::find(Auth::user()->id)->venda()->get();
+        
+        $pdf = PDF::loadView('produto.pdf_baixa', array('venda'=> $venda));
+        return $pdf->setPaper('a4')->stream();  
     }
 }

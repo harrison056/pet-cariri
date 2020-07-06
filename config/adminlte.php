@@ -244,7 +244,7 @@ return [
             'icon' => 'fas fa-fw fa-paw',
         ],
         [
-            'text' => 'Produtos',
+            'text' => 'Estoque',
             'url'  => 'produto',
             'icon' => 'fas fa-fw  fa-archive',
         ],
@@ -257,7 +257,7 @@ return [
                     'url'  => 'venda',
                 ],
                 [
-                    'text'    => 'Estoque',
+                    'text'    => 'Baixa de Estoque',
                     'url'     => 'relatorio_estoque',
                     
                 ],
